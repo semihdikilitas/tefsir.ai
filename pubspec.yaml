@@ -1,0 +1,49 @@
+name: islamic_ai_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_qiblah: ^3.2.0
+  geolocator: ^14.0.3
+  dio: ^5.10.0
+  sqflite: ^2.4.3
+  path: ^1.9.0
+  path_provider: ^2.1.6
+  home_widget: ^0.9.3
+  cached_network_image: ^3.4.1
+  google_generative_ai: ^0.4.7
+
+  # EKLENDİ: Kuran'da kalınan yeri kaydetmek için gerekli paket
+  shared_preferences: ^2.2.3
+
+  # TODO AdMob: Flutter Swift Package Manager ile çakışma düzeldiğinde ekle
+  # google_mobile_ads: ^5.2.0
+
+  # Çoklu dil desteği
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/istanbul.png
+    # DÜZELTİLDİ: demo/ klasörü sadece örnek görsellerdi, gerçek 000-604
+    # sayfaları bir üst klasörde duruyor.
+    - assets/quran/Quran-PNG-master/

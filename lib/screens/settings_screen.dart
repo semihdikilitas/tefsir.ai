@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../core/constants/app_colors.dart';
 import '../data/services/language_service.dart';
+import '../data/services/wallpaper_preferences.dart';
+import '../data/services/widget_service.dart';
 import 'premium_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -16,9 +18,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _autoLocation = true;
   String _selectedLanguage = 'Türkçe';
   String _selectedTafsirSource = 'Diyanet';
+  bool _autoChangeWallpaper = true;
+  int _changeIntervalDays = 3;
 
   final List<String> _languages = ['Türkçe', 'English', 'العربية', 'فارسی'];
   final List<String> _tafsirSources = ['Diyanet', 'Elmalılı', 'Kurtubi', 'Taberi'];
+  final List<String> _intervalOptions = ['1 gün', '3 gün', '7 gün'];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadWallpaperPrefs();
+  }
+
+  Future<void> _loadWallpaperPrefs() async {
+    final prefs = await WallpaperPreferences.load();
+    if (!mounted) return;
+    setState(() {
+      _autoChangeWallpaper = prefs.autoChangeEnabled;
+      _changeIntervalDays = prefs.changeIntervalDays;
+    });
+  }
+
+  Future<void> _saveWallpaperAutoChange(bool enabled, int days) async {
+    await WallpaperPreferences.saveAutoChange(enabled: enabled, intervalDays: days);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +133,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   subtitle: 'İstanbul, Türkiye',
                   onTap: () {
                     // TODO: Şehir seçme modalı
+                  },
+                ),
+              ]),
+
+              const SizedBox(height: 24),
+
+              // DUVAR KAĞIDI AYARLARI
+              _buildSectionHeader('Duvar Kağıdı'),
+              const SizedBox(height: 8),
+              _buildSettingsCard([
+                _buildSwitchTile(
+                  icon: Icons.wallpaper_rounded,
+                  title: 'Otomatik Değiştirme',
+                  subtitle: 'Duvar kağıdı belirli aralıklarla otomatik değişsin',
+                  value: _autoChangeWallpaper,
+                  onChanged: (v) {
+                    setState(() => _autoChangeWallpaper = v);
+                    _saveWallpaperAutoChange(v, _changeIntervalDays);
+                  },
+                ),
+                _buildDivider(),
+                _buildSelectorTile(
+                  icon: Icons.schedule_rounded,
+                  title: 'Değişim Aralığı',
+                  subtitle: 'Duvar kağıdı kaç günde bir değişsin',
+                  value: '$_changeIntervalDays gün',
+                  options: _intervalOptions,
+                  onSelected: (v) {
+                    final days = int.tryParse(v.split(' ')[0]) ?? 3;
+                    setState(() => _changeIntervalDays = days);
+                    _saveWallpaperAutoChange(_autoChangeWallpaper, days);
+                  },
+                ),
+                _buildDivider(),
+                _buildTapTile(
+                  icon: Icons.widgets_rounded,
+                  title: 'Ana Ekran Widget Ekle',
+                  subtitle: 'Günün ayetini ana ekranda widget olarak göster',
+                  onTap: () {
+                    WidgetService.requestPinWidget();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text('Widget eklemek için ana ekrana gidin.'),
+                        backgroundColor: AppColors.gold.withValues(alpha: 0.9),
+                        behavior: SnackBarBehavior.floating,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                    );
                   },
                 ),
               ]),

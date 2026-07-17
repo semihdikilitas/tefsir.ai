@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/constants/app_colors.dart';
+import '../data/services/api_service.dart';
 
 /// Günlük hayatta okunan bir duayı temsil eder.
 class _DuaEntry {
@@ -30,7 +31,8 @@ const List<String> _categories = [
   'Zor Anlarda',
 ];
 
-const List<_DuaEntry> _allDualar = [
+/// Yerel (built-in) dua listesi — sunucuya erişilemezse kullanılır.
+const List<_DuaEntry> _localDualar = [
   _DuaEntry(
     title: 'Sabah Duası',
     category: 'Sabah / Akşam',
@@ -196,6 +198,7 @@ class _GunlukDualarScreenState extends State<GunlukDualarScreen> {
   final TextEditingController _searchController = TextEditingController();
   String _query = '';
   String _selectedCategory = 'Tümü';
+  List<_DuaEntry> _allDualar = _localDualar.toList();
 
   @override
   void initState() {
@@ -203,6 +206,29 @@ class _GunlukDualarScreenState extends State<GunlukDualarScreen> {
     _searchController.addListener(() {
       setState(() => _query = _searchController.text.trim().toLowerCase());
     });
+    _loadFromApi();
+  }
+
+  Future<void> _loadFromApi() async {
+    try {
+      final items = await ApiService().getPrayers();
+      if (items.isNotEmpty && mounted) {
+        final remote = items.map((json) => _DuaEntry(
+          title: json['title'] ?? '',
+          category: json['category'] ?? 'Dua',
+          arabic: json['arabic'] ?? '',
+          transliteration: json['transliteration'] ?? '',
+          meaning: json['text'] ?? '',
+          note: json['note'] ?? '',
+        )).toList();
+
+        setState(() {
+          _allDualar = remote.isNotEmpty ? remote : _localDualar.toList();
+        });
+      }
+    } catch (_) {
+      // Sunucuya erisilemezse yerel liste kullanilir
+    }
   }
 
   @override

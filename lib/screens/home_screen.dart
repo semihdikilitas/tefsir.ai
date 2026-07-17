@@ -1,9 +1,16 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../core/constants/app_colors.dart';
+import '../core/constants/wallpapers.dart';
 import '../data/services/location_service.dart';
 import '../data/services/prayer_times_service.dart';
+import '../data/services/wallpaper_preferences.dart';
+import '../core/services/wallpaper_service.dart';
+import '../data/services/widget_service.dart';
+import '../features/wallpapers/presentation/wallpaper_verse_card.dart';
+import '../features/wallpapers/presentation/wallpaper_fullscreen_screen.dart';
 import '../widgets/ad_banner.dart';
 import '../widgets/app_drawer.dart';
 import 'prayer_times_screen.dart';
@@ -29,10 +36,31 @@ class _HomeScreenState extends State<HomeScreen> {
   double _lat = 41.0082;
   double _lng = 28.9784;
 
+  int _currentWallpaperIndex = 0;
+  bool _isPremium = false;
+
   @override
   void initState() {
     super.initState();
     _initLocation();
+    _initWallpaper();
+    _loadRemoteContent();
+  }
+
+  Future<void> _loadRemoteContent() async {
+    // Sunucudan duvar kagidi listesini yukle (sessizce, hata olsa da built-in kullanilir)
+    await WallpaperRegistry.loadFromApi();
+    if (!mounted) return;
+    // Indeks degisti mi kontrol et
+    final prefs = await WallpaperPreferences.load();
+    if (mounted) {
+      setState(() {
+        _currentWallpaperIndex = prefs.lastWallpaperIndex.clamp(0, WallpaperRegistry.all.length - 1);
+      });
+    }
+    // Widget verisini ilk yuklemede kaydet
+    final idx = prefs.lastWallpaperIndex.clamp(0, WallpaperRegistry.all.length - 1);
+    WidgetService.updateWidget(idx);
   }
 
   @override
@@ -49,6 +77,28 @@ class _HomeScreenState extends State<HomeScreen> {
       _cityDisplay = '${loc.city}$districtPart, ${loc.country}';
     });
     _fetch();
+  }
+
+  Future<void> _initWallpaper() async {
+    final prefs = await WallpaperPreferences.load();
+    final premium = await WallpaperPreferences.isPremium;
+
+    var index = prefs.lastWallpaperIndex;
+    // Otomatik değişim kontrolü
+    if (prefs.autoChangeEnabled) {
+      final daysSince = DateTime.now().difference(prefs.lastChangeDate).inDays;
+      if (daysSince >= prefs.changeIntervalDays) {
+        index = (index + 1) % WallpaperRegistry.all.length;
+        await WallpaperPreferences.saveWallpaperIndex(index);
+        await WallpaperPreferences.saveLastChangeDate(DateTime.now());
+      }
+    }
+
+    if (!mounted) return;
+    setState(() {
+      _currentWallpaperIndex = index;
+      _isPremium = premium;
+    });
   }
 
   Future<void> _fetch() async {
@@ -200,38 +250,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 // Reklam Banner
                 const AdBanner(),
                 const Spacer(flex: 1),
-                // Günün Ayeti
+                // Günün Ayeti — dönen duvar kağıtları ile
                 Expanded(
                   flex: 12,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.surface.withValues(alpha: 0.5),
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: AppColors.gold.withValues(alpha: 0.1), width: 1),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Stack(
-                        children: [
-                          Positioned.fill(child: Image.asset('assets/kabe.png', fit: BoxFit.cover)),
-                          Positioned.fill(child: Container(color: Colors.black.withValues(alpha: 0.55))),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(Icons.format_quote_rounded, color: AppColors.gold, size: 28),
-                                SizedBox(height: 12),
-                                Text('"Şüphesiz güçlükle beraber bir kolaylık vardır."', style: TextStyle(color: AppColors.textLight, fontSize: 16, height: 1.5, fontWeight: FontWeight.w400)),
-                                SizedBox(height: 12),
-                                Align(alignment: Alignment.centerRight, child: Text('İnşirah Suresi, 5', style: TextStyle(color: AppColors.gold, fontSize: 13, fontWeight: FontWeight.w500))),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  child: WallpaperVerseCard(
+                    initialIndex: _currentWallpaperIndex,
+                    onTap: (index, item) => _openFullscreen(index),
+                    onSetWallpaper: _isPremium
+                        ? () => _handleSetWallpaper(_currentWallpaperIndex)
+                        : null,
                   ),
                 ),
 
@@ -296,6 +323,42 @@ class _HomeScreenState extends State<HomeScreen> {
       const SizedBox(height: 6),
       FittedBox(fit: BoxFit.scaleDown, child: Text(time, style: TextStyle(color: next ? AppColors.gold : AppColors.textLight, fontSize: 15, fontWeight: next ? FontWeight.bold : FontWeight.w500))),
     ]);
+  }
+
+  void _openFullscreen(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => WallpaperFullscreenScreen(
+          initialIndex: index,
+          isPremium: _isPremium,
+        ),
+      ),
+    ).then((_) {
+      // Tam ekrandan dönünce indeks güncellenmiş olabilir
+      _initWallpaper();
+    });
+  }
+
+  void _handleSetWallpaper(int index) async {
+    final item = WallpaperRegistry.all[index];
+    // Widget'i de guncelle
+    WidgetService.updateWidget(index);
+    final success = await WallpaperService.setWallpaper(item.assetPath);
+
+    if (!mounted) return;
+
+    final message = Platform.isAndroid
+        ? 'Duvar kağıdı telefonunuza uygulandı ✓'
+        : 'Görsel fotoğraflara kaydedildi. Ayarlardan duvar kağıdı yapabilirsiniz.';
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(success ? message : 'Duvar kağıdı uygulanamadı.'),
+        backgroundColor: AppColors.gold.withValues(alpha: 0.9),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+    );
   }
 
   Widget _buildActionCard(IconData icon, String title, {VoidCallback? onTap}) {

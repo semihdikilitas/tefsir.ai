@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/constants/app_colors.dart';
+import '../data/services/api_service.dart';
 
 /// Tek bir hadis-i şerifi temsil eder.
 class _HadisEntry {
@@ -22,7 +23,8 @@ const List<String> _categories = [
   'Tümü', 'İman & İhlas', 'Ahlak', 'İbadet', 'İlim', 'Aile', 'Sosyal Hayat',
 ];
 
-const List<_HadisEntry> _allHadisler = [
+/// Yerel (built-in) hadis listesi — sunucuya erişilemezse kullanılır.
+const List<_HadisEntry> _localHadisler = [
   _HadisEntry(
     topic: 'Ameller Niyetlere Göredir',
     category: 'İman & İhlas',
@@ -72,17 +74,45 @@ class _HadisiSerifScreenState extends State<HadisiSerifScreen> {
   String _query = '';
   String _selectedCategory = 'Tümü';
 
-  late final _HadisEntry _gununHadisi;
+  late _HadisEntry _gununHadisi;
+  List<_HadisEntry> _allHadisler = _localHadisler.toList();
 
   @override
   void initState() {
     super.initState();
-    final now = DateTime.now();
-    final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
-    _gununHadisi = _allHadisler[dayOfYear % _allHadisler.length];
+    _setGununHadisi();
     _searchController.addListener(() {
       setState(() => _query = _searchController.text.trim().toLowerCase());
     });
+    _loadFromApi();
+  }
+
+  Future<void> _loadFromApi() async {
+    try {
+      final items = await ApiService().getHadiths();
+      if (items.isNotEmpty && mounted) {
+        final remote = items.map((json) => _HadisEntry(
+          topic: (json['text'] ?? '').split('.')[0].trim(),
+          category: json['category'] ?? 'Genel',
+          arabic: json['arabic'] ?? '',
+          text: json['text'] ?? '',
+          source: json['source'] ?? '',
+        )).toList();
+
+        setState(() {
+          _allHadisler = remote.isNotEmpty ? remote : _localHadisler.toList();
+          _setGununHadisi();
+        });
+      }
+    } catch (_) {
+      // Sunucuya erisilemezse yerel liste kullanilir
+    }
+  }
+
+  void _setGununHadisi() {
+    final now = DateTime.now();
+    final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
+    _gununHadisi = _allHadisler[dayOfYear % _allHadisler.length];
   }
 
   @override

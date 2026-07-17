@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "text": "Ameller ancak niyetlere göredir. Herkese niyet ettiği şey vardır.",
+    "source": "Buhârî, Bedü'l-Vahy, 1; Müslim, İmâre, 155",
+    "category": "İman & İhlas",
+    "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى"
+  },
+  {
+    "id": "2",
+    "text": "Müslüman, diğer Müslümanların elinden ve dilinden güvende olduğu kimsedir.",
+    "source": "Buhârî, Îmân, 4; Müslim, Îmân, 64",
+    "category": "Ahlak",
+    "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ"
+  },
+  {
+    "id": "3",
+    "text": "Kolaylaştırın, zorlaştırmayın; müjdeleyin, nefret ettirmeyin.",
+    "source": "Buhârî, İlim, 11; Müslim, Cihâd, 6",
+    "category": "Ahlak",
+    "arabic": "يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا"
+  },
+  {
+    "id": "4",
+    "text": "Sizden biriniz, kendisi için istediğini kardeşi için de istemedikçe iman etmiş olmaz.",
+    "source": "Buhârî, Îmân, 7; Müslim, Îmân, 71",
+    "category": "Ahlak",
+    "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ"
+  },
+  {
+    "id": "5",
+    "text": "Namaz dinin direğidir.",
+    "source": "Beyhakî, Şuabü'l-Îmân",
+    "category": "İbadet",
+    "arabic": "الصَّلَاةُ عِمَادُ الدِّينِ"
+  },
+  {
+    "id": "6",
+    "text": "İlim öğrenmek her Müslümana farzdır.",
+    "source": "İbn Mace, Mukaddime, 17",
+    "category": "İlim",
+    "arabic": "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ"
+  },
+  {
+    "id": "7",
+    "text": "Allah, sizin suretlerinize ve mallarınıza bakmaz; kalplerinize ve amellerinize bakar.",
+    "source": "Müslim, Birr, 33",
+    "category": "İman & İhlas",
+    "arabic": "إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ"
+  },
+  {
+    "id": "8",
+    "text": "Merhamet etmeyene merhamet olunmaz.",
+    "source": "Buhârî, Edeb, 18",
+    "category": "Ahlak",
+    "arabic": "مَنْ لَا يَرْحَمْ لَا يُرْحَمْ"
+  },
+  {
+    "id": "9",
+    "text": "Komşusu açken tok yatan bizden değildir.",
+    "source": "Hakim, Müstedrek, 4/167",
+    "category": "Sosyal Hayat",
+    "arabic": "مَا آمَنَ بِي مَنْ بَاتَ شَبْعَانَ وَجَارُهُ جَائِعٌ"
+  },
+  {
+    "id": "10",
+    "text": "Tebessüm etmek sadakadır.",
+    "source": "Tirmizi, Birr, 36",
+    "category": "Ahlak",
+    "arabic": "تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ صَدَقَةٌ"
+  }
+]

@@ -12,6 +12,7 @@ import '../screens/settings_screen.dart';
 import '../screens/about_screen.dart';
 import '../screens/history_screen.dart';
 import '../screens/profile_screen.dart';
+import '../features/wallpapers/presentation/wallpaper_browser_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -110,6 +111,13 @@ class AppDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const HadisiSerifScreen()),
+              );
+            }),
+            _buildDrawerItem(context, icon: Icons.wallpaper_rounded, title: 'Duvar Kağıtları', onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const WallpaperBrowserScreen()),
               );
             }),
 

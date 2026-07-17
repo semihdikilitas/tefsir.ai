@@ -4,28 +4,28 @@
     "text": "Ameller ancak niyetlere göredir. Herkese niyet ettiği şey vardır.",
     "source": "Buhârî, Bedü'l-Vahy, 1; Müslim, İmâre, 155",
     "category": "İman & İhlas",
-    "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى"
+    "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ"
   },
   {
     "id": "2",
     "text": "Müslüman, diğer Müslümanların elinden ve dilinden güvende olduğu kimsedir.",
-    "source": "Buhârî, Îmân, 4; Müslim, Îmân, 64",
+    "source": "Buhârî, Îmân, 4",
     "category": "Ahlak",
     "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ"
   },
   {
     "id": "3",
     "text": "Kolaylaştırın, zorlaştırmayın; müjdeleyin, nefret ettirmeyin.",
-    "source": "Buhârî, İlim, 11; Müslim, Cihâd, 6",
+    "source": "Buhârî, İlim, 11",
     "category": "Ahlak",
-    "arabic": "يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا"
+    "arabic": "يَسِّرُوا وَلَا تُعَسِّرُوا"
   },
   {
     "id": "4",
     "text": "Sizden biriniz, kendisi için istediğini kardeşi için de istemedikçe iman etmiş olmaz.",
-    "source": "Buhârî, Îmân, 7; Müslim, Îmân, 71",
-    "category": "Ahlak",
-    "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ"
+    "source": "Buhârî, Îmân, 7",
+    "category": "İman & İhlas",
+    "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ"
   },
   {
     "id": "5",
@@ -46,7 +46,7 @@
     "text": "Allah, sizin suretlerinize ve mallarınıza bakmaz; kalplerinize ve amellerinize bakar.",
     "source": "Müslim, Birr, 33",
     "category": "İman & İhlas",
-    "arabic": "إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ"
+    "arabic": "إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ"
   },
   {
     "id": "8",
@@ -58,7 +58,7 @@
   {
     "id": "9",
     "text": "Komşusu açken tok yatan bizden değildir.",
-    "source": "Hakim, Müstedrek, 4/167",
+    "source": "Hakim, Müstedrek",
     "category": "Sosyal Hayat",
     "arabic": "مَا آمَنَ بِي مَنْ بَاتَ شَبْعَانَ وَجَارُهُ جَائِعٌ"
   },
@@ -68,5 +68,215 @@
     "source": "Tirmizi, Birr, 36",
     "category": "Ahlak",
     "arabic": "تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ صَدَقَةٌ"
+  },
+  {
+    "id": "11",
+    "text": "Allah her işte ihsanı (güzel davranmayı) emretmiştir.",
+    "source": "Müslim, Sayd, 57",
+    "category": "Ahlak",
+    "arabic": "إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ"
+  },
+  {
+    "id": "12",
+    "text": "Kıyamet günü mizanda en ağır basacak şey güzel ahlaktır.",
+    "source": "Tirmizi, Birr, 62",
+    "category": "Ahlak",
+    "arabic": "مَا مِنْ شَيْءٍ أَثْقَلُ فِي الْمِيزَانِ مِنْ حُسْنِ الْخُلُقِ"
+  },
+  {
+    "id": "13",
+    "text": "Dua ibadetin özüdür.",
+    "source": "Tirmizi, Deavât, 1",
+    "category": "İbadet",
+    "arabic": "الدُّعَاءُ مُخُّ الْعِبَادَةِ"
+  },
+  {
+    "id": "14",
+    "text": "Allah'a yemin ederim ki, iman etmedikçe cennete giremezsiniz.",
+    "source": "Müslim, Îmân, 93",
+    "category": "İman & İhlas",
+    "arabic": "لَا تَدْخُلُونَ الْجَنَّةَ حَتَّى تُؤْمِنُوا"
+  },
+  {
+    "id": "15",
+    "text": "Helal bellidir, haram bellidir.",
+    "source": "Buhârî, Îmân, 39",
+    "category": "İlim",
+    "arabic": "الْحَلَالُ بَيِّنٌ وَالْحَرَامُ بَيِّنٌ"
+  },
+  {
+    "id": "16",
+    "text": "Allah'a ve ahiret gününe iman eden, komşusuna eziyet etmesin.",
+    "source": "Buhârî, Edeb, 31",
+    "category": "Sosyal Hayat",
+    "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلَا يُؤْذِ جَارَهُ"
+  },
+  {
+    "id": "17",
+    "text": "Haya imandandır.",
+    "source": "Buhârî, Îmân, 16",
+    "category": "İman & İhlas",
+    "arabic": "الْحَيَاءُ مِنَ الْإِيمَانِ"
+  },
+  {
+    "id": "18",
+    "text": "Sözün en doğrusu Allah'ın Kitabıdır.",
+    "source": "Müslim, Cum'a, 43",
+    "category": "İlim",
+    "arabic": "فَإِنَّ خَيْرَ الْحَدِيثِ كِتَابُ اللَّهِ"
+  },
+  {
+    "id": "19",
+    "text": "Kim bir Müslümanın dünya sıkıntılarından birini giderirse, Allah da onun kıyamet sıkıntılarından birini giderir.",
+    "source": "Müslim, Zikir, 38",
+    "category": "Sosyal Hayat",
+    "arabic": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً"
+  },
+  {
+    "id": "20",
+    "text": "Mümin, eğrilik bilmez doğru bir terazi gibidir.",
+    "source": "İbn Hanbel, 3/155",
+    "category": "Ahlak",
+    "arabic": "الْمُؤْمِنُ كَالْمِيزَانِ"
+  },
+  {
+    "id": "21",
+    "text": "Sadaka vermek malı eksiltmez.",
+    "source": "Müslim, Birr, 69",
+    "category": "Sosyal Hayat",
+    "arabic": "مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ"
+  },
+  {
+    "id": "22",
+    "text": "Kim bana iki çenesi ile iki bacağı arasındakini garanti verirse, ben de ona cenneti garanti veririm.",
+    "source": "Buhârî, Rikâk, 23",
+    "category": "Ahlak",
+    "arabic": "مَنْ يَضْمَنْ لِي مَا بَيْنَ لَحْيَيْهِ"
+  },
+  {
+    "id": "23",
+    "text": "Allah katında en sevimli amel, az da olsa devamlı olanıdır.",
+    "source": "Buhârî, Îmân, 32",
+    "category": "İbadet",
+    "arabic": "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا"
+  },
+  {
+    "id": "24",
+    "text": "Mümin müminin aynasıdır.",
+    "source": "Ebû Dâvûd, Edeb, 49",
+    "category": "Sosyal Hayat",
+    "arabic": "الْمُؤْمِنُ مِرْآةُ الْمُؤْمِنِ"
+  },
+  {
+    "id": "25",
+    "text": "Allah'ım! Faydasız ilimden sana sığınırım.",
+    "source": "Müslim, Zikir, 73",
+    "category": "İlim",
+    "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ"
+  },
+  {
+    "id": "26",
+    "text": "Hikmetin başı Allah korkusudur.",
+    "source": "Tirmizi, Zühd, 10",
+    "category": "İlim",
+    "arabic": "رَأْسُ الْحِكْمَةِ مَخَافَةُ اللَّهِ"
+  },
+  {
+    "id": "27",
+    "text": "Mümin, bir delikten iki kere sokulmaz.",
+    "source": "Buhârî, Edeb, 83",
+    "category": "Ahlak",
+    "arabic": "لَا يُلْدَغُ الْمُؤْمِنُ مِنْ جُحْرٍ مَرَّتَيْنِ"
+  },
+  {
+    "id": "28",
+    "text": "Oruç kalkandır.",
+    "source": "Buhârî, Savm, 2",
+    "category": "İbadet",
+    "arabic": "الصِّيَامُ جُنَّةٌ"
+  },
+  {
+    "id": "29",
+    "text": "Zenginlik mal çokluğu değil, gönül tokluğudur.",
+    "source": "Buhârî, Rikâk, 15",
+    "category": "Ahlak",
+    "arabic": "لَيْسَ الْغِنَى عَنْ كَثْرَةِ الْعَرَضِ"
+  },
+  {
+    "id": "30",
+    "text": "Allah sabredenlerle beraberdir.",
+    "source": "Bakara, 153",
+    "category": "İman & İhlas",
+    "arabic": "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ"
+  },
+  {
+    "id": "31",
+    "text": "Birbirinize kin beslemeyin, haset etmeyin.",
+    "source": "Buhârî, Edeb, 57",
+    "category": "Sosyal Hayat",
+    "arabic": "لَا تَحَاسَدُوا وَلَا تَبَاغَضُوا"
+  },
+  {
+    "id": "32",
+    "text": "Allah her şeyi bilendir, hikmet sahibidir.",
+    "source": "Nûr, 35",
+    "category": "İlim",
+    "arabic": "وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ"
+  },
+  {
+    "id": "33",
+    "text": "Ey iman edenler! Allah'tan korkun ve doğrularla beraber olun.",
+    "source": "Tevbe, 119",
+    "category": "İman & İhlas",
+    "arabic": "اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ"
+  },
+  {
+    "id": "34",
+    "text": "Allah'a tevekkül et. Vekil olarak Allah yeter.",
+    "source": "Ahzâb, 3",
+    "category": "İman & İhlas",
+    "arabic": "وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَى بِاللَّهِ وَكِيلًا"
+  },
+  {
+    "id": "35",
+    "text": "Rabbim! İlmimi artır.",
+    "source": "Tâhâ, 114",
+    "category": "İlim",
+    "arabic": "رَبِّ زِدْنِي عِلْمًا"
+  },
+  {
+    "id": "36",
+    "text": "Allah adaletli davrananları sever.",
+    "source": "Mümtehine, 8",
+    "category": "Ahlak",
+    "arabic": "إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ"
+  },
+  {
+    "id": "37",
+    "text": "Kim bir iyilik yaparsa, ona on katı verilir.",
+    "source": "En'âm, 160",
+    "category": "İbadet",
+    "arabic": "مَنْ جَاءَ بِالْحَسَنَةِ فَلَهُ عَشْرُ أَمْثَالِهَا"
+  },
+  {
+    "id": "38",
+    "text": "De ki: Hiç bilenlerle bilmeyenler bir olur mu?",
+    "source": "Zümer, 9",
+    "category": "İlim",
+    "arabic": "هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ"
+  },
+  {
+    "id": "39",
+    "text": "Allah size kolaylık diler, zorluk dilemez.",
+    "source": "Bakara, 185",
+    "category": "İbadet",
+    "arabic": "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ"
+  },
+  {
+    "id": "40",
+    "text": "Yalnız sana ibadet eder ve yalnız senden yardım dileriz.",
+    "source": "Fâtiha, 5",
+    "category": "İbadet",
+    "arabic": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
   }
 ]

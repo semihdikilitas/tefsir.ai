@@ -119,6 +119,106 @@ function crudRoutes(resourceName) {
 
 ['wallpapers', 'verses', 'hadiths', 'prayers'].forEach(crudRoutes);
 
+// ─── KURAN API ───
+
+let quranData = null;
+const SURAH_NAMES_PATH = path.join(__dirname, 'surah_names.json');
+
+function loadQuranData() {
+  if (quranData) return quranData;
+  const p = path.join(DATA_DIR, 'quran', 'quran_full.json');
+  if (!fs.existsSync(p)) {
+    // Seed'den kopyala
+    const seed = path.join(__dirname, 'seed', 'quran', 'quran_full.json');
+    if (fs.existsSync(seed)) {
+      const dir = path.dirname(p);
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      fs.copyFileSync(seed, p);
+    } else return [];
+  }
+  quranData = JSON.parse(fs.readFileSync(p, 'utf-8'));
+  return quranData;
+}
+
+// Sure listesi (Turkce isimlerle)
+app.get('/api/quran/surahs', (req, res) => {
+  if (!fs.existsSync(SURAH_NAMES_PATH)) {
+    return res.json([]);
+  }
+  res.json(JSON.parse(fs.readFileSync(SURAH_NAMES_PATH, 'utf-8')));
+});
+
+// Tek bir sure (tum ayetlerle)
+app.get('/api/quran/surah/:id', (req, res) => {
+  const data = loadQuranData();
+  const surah = data.find(s => s.id === parseInt(req.params.id));
+  if (!surah) return res.status(404).json({ error: 'Sure bulunamadi' });
+  res.json(surah);
+});
+
+// Tek bir ayet
+app.get('/api/quran/ayah/:surahId/:ayahId', (req, res) => {
+  const data = loadQuranData();
+  const surah = data.find(s => s.id === parseInt(req.params.surahId));
+  if (!surah) return res.status(404).json({ error: 'Sure bulunamadi' });
+  const ayah = surah.verses.find(a => a.id === parseInt(req.params.ayahId));
+  if (!ayah) return res.status(404).json({ error: 'Ayet bulunamadi' });
+  res.json({ surah: { id: surah.id, name: surah.name, translation: surah.translation }, ayah });
+});
+
+// Birden fazla ayet (range: /api/quran/ayahs/1/1-7)
+app.get('/api/quran/ayahs/:surahId/:range', (req, res) => {
+  const data = loadQuranData();
+  const surah = data.find(s => s.id === parseInt(req.params.surahId));
+  if (!surah) return res.status(404).json({ error: 'Sure bulunamadi' });
+
+  const [start, end] = req.params.range.split('-').map(Number);
+  const ayahs = surah.verses.filter(a => a.id >= start && a.id <= (end || start));
+  res.json({ surah: { id: surah.id, name: surah.name, translation: surah.translation }, ayahs });
+});
+
+// Arama (ayet metninde veya mealde)
+app.get('/api/quran/search', (req, res) => {
+  const q = (req.query.q || '').toLowerCase();
+  if (!q || q.length < 3) return res.json([]);
+
+  const data = loadQuranData();
+  const results = [];
+  for (const surah of data) {
+    for (const ayah of surah.verses) {
+      if (ayah.translation.toLowerCase().includes(q) || ayah.text.includes(q)) {
+        results.push({
+          surah: { id: surah.id, name: surah.name, translation: surah.translation },
+          ayah,
+        });
+        if (results.length >= 20) break; // Max 20 sonuc
+      }
+    }
+    if (results.length >= 20) break;
+  }
+  res.json(results);
+});
+
+// ─── TEFSIR API ───
+
+// Tefsir verisi (JSON dosyasi)
+app.get('/api/tafsir/:surahId/:ayahId', (req, res) => {
+  const data = readData('tafsir.json');
+  const entry = data.find(t =>
+    t.surahId === parseInt(req.params.surahId) &&
+    t.ayahId === parseInt(req.params.ayahId)
+  );
+  if (!entry) return res.json({ text: 'Bu ayet için henüz tefsir eklenmedi.', source: '' });
+  res.json(entry);
+});
+
+// Sure bazli tefsir
+app.get('/api/tafsir/:surahId', (req, res) => {
+  const data = readData('tafsir.json');
+  const surahTafsir = data.filter(t => t.surahId === parseInt(req.params.surahId));
+  res.json(surahTafsir);
+});
+
 // ─── Baslat ───
 
 app.listen(PORT, '0.0.0.0', () => {

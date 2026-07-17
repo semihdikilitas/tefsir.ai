@@ -1,16 +1,11 @@
 import 'package:dio/dio.dart';
 
 /// Tefsir AI icerik API'sine erisim.
-/// Sunucu adresi: .env veya ayarlardan alinabilir.
 class ApiService {
   static final ApiService _instance = ApiService._();
   factory ApiService() => _instance;
   ApiService._();
 
-  // TODO: Yayinda gercek sunucu adresiyle degistir
-  // Ornek: 'https://api.tefsir.ai'
-  // Yerel test icin Android emulator: 'http://10.0.2.2:3000'
-  // iOS simulator: 'http://localhost:3000'
   static String baseUrl = 'https://tefsir-ai-api.fly.dev';
 
   final Dio _dio = Dio(BaseOptions(
@@ -18,25 +13,58 @@ class ApiService {
     receiveTimeout: const Duration(seconds: 10),
   ));
 
-  /// Tum duvar kagitlarini getir
+  // ─── Duvar Kagitlari, Ayetler, Hadisler, Dualar ───
+
   Future<List<Map<String, dynamic>>> getWallpapers() async {
     return _getList('/api/wallpapers');
   }
 
-  /// Gunun ayetlerini getir
   Future<List<Map<String, dynamic>>> getVerses() async {
     return _getList('/api/verses');
   }
 
-  /// Hadisleri getir
   Future<List<Map<String, dynamic>>> getHadiths() async {
     return _getList('/api/hadiths');
   }
 
-  /// Dualari getir
   Future<List<Map<String, dynamic>>> getPrayers() async {
     return _getList('/api/prayers');
   }
+
+  // ─── Kuran ───
+
+  Future<List<Map<String, dynamic>>> getSurahs() async {
+    return _getList('/api/quran/surahs');
+  }
+
+  Future<Map<String, dynamic>?> getSurah(int id) async {
+    try {
+      final response = await _dio.get('$baseUrl/api/quran/surah/$id');
+      return response.data as Map<String, dynamic>;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<Map<String, dynamic>?> getAyahs(int surahId, int start, int end) async {
+    try {
+      final response = await _dio.get('$baseUrl/api/quran/ayahs/$surahId/$start-$end');
+      return response.data as Map<String, dynamic>;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> searchQuran(String query) async {
+    try {
+      final response = await _dio.get('$baseUrl/api/quran/search', queryParameters: {'q': query});
+      return (response.data as List).cast<Map<String, dynamic>>();
+    } catch (e) {
+      return [];
+    }
+  }
+
+  // ─── Helper ───
 
   Future<List<Map<String, dynamic>>> _getList(String endpoint) async {
     try {

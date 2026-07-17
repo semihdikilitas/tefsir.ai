@@ -10,6 +10,7 @@ RUN npm install --production
 COPY index.js ./
 COPY admin/ ./admin/
 COPY seed/ ./seed/
+COPY surah_names.json ./
 
 # Runtime data volume (persistent storage)
 VOLUME /app/data

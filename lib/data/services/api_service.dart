@@ -11,7 +11,7 @@ class ApiService {
   // Ornek: 'https://api.tefsir.ai'
   // Yerel test icin Android emulator: 'http://10.0.2.2:3000'
   // iOS simulator: 'http://localhost:3000'
-  static String baseUrl = 'http://10.0.2.2:3000';
+  static String baseUrl = 'https://tefsir-ai-api.fly.dev';
 
   final Dio _dio = Dio(BaseOptions(
     connectTimeout: const Duration(seconds: 10),

@@ -1,0 +1,8 @@
+{
+  "name": "tefsir-ai",
+  "scripts": {
+    "server": "cd server && node index.js",
+    "server:dev": "cd server && node --watch index.js",
+    "server:install": "cd server && npm install"
+  }
+}

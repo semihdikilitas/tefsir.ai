@@ -1,0 +1,33 @@
+app = "tefsir-ai-api"
+
+[env]
+  NODE_ENV = "production"
+  DATA_DIR = "/data"
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 3000
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.http_checks]]
+    interval = "10s"
+    timeout = "2s"
+    method = "get"
+    path = "/api/health"
+    protocol = "http"

@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: tefsir-ai-api
-    env: node
-    region: frankfurt
-    rootDir: server
-    buildCommand: npm install
-    startCommand: node index.js
-    plan: free

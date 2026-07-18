@@ -271,14 +271,18 @@ class LocationService {
     return (country: country, city: city, district: district, lat: lat, lng: lng);
   }
 
-  /// Uygulama ilk açılışta GPS dener, yoksa kayıtlı konumu yükler.
+  /// Uygulama ilk acilista GPS dener, yoksa kayitli konumu yukler.
+  /// Emulator/cihazda GPS yoksa direkt kayitli konuma duser.
   static Future<({String country, String city, String? district, double lat, double lng})>
       getOrDetect() async {
-    final gps = await fromGps();
-    if (gps != null) {
-      await saveLocation(country: gps.country, city: gps.city, district: gps.district, lat: gps.lat, lng: gps.lng);
-      return gps;
-    }
-    return loadLocation();
+    // Once kayitli konumu yukle (aninda)
+    final saved = await loadLocation();
+    // GPS'i arka planda dene, basarili olursa guncelle
+    fromGps().then((gps) {
+      if (gps != null) {
+        saveLocation(country: gps.country, city: gps.city, district: gps.district, lat: gps.lat, lng: gps.lng);
+      }
+    });
+    return saved;
   }
 }

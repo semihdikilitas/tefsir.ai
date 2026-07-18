@@ -1,17 +1,17 @@
 [
   {
     "id": "1",
-    "text": "Ameller ancak niyetlere göredir. Herkese niyet ettiği şey vardır.",
-    "source": "Buhârî, Bedü'l-Vahy, 1; Müslim, İmâre, 155",
+    "text": "Ameller ancak niyetlere göredir.",
+    "source": "Buhârî, Bedü'l-Vahy, 1",
     "category": "İman & İhlas",
     "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ"
   },
   {
     "id": "2",
-    "text": "Müslüman, diğer Müslümanların elinden ve dilinden güvende olduğu kimsedir.",
+    "text": "Müslüman, elinden ve dilinden güvende olunan kişidir.",
     "source": "Buhârî, Îmân, 4",
     "category": "Ahlak",
-    "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ"
+    "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ"
   },
   {
     "id": "3",
@@ -22,7 +22,7 @@
   },
   {
     "id": "4",
-    "text": "Sizden biriniz, kendisi için istediğini kardeşi için de istemedikçe iman etmiş olmaz.",
+    "text": "Kendin için istediğini kardeşin için de istemedikçe iman etmiş olmazsın.",
     "source": "Buhârî, Îmân, 7",
     "category": "İman & İhlas",
     "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ"
@@ -39,11 +39,11 @@
     "text": "İlim öğrenmek her Müslümana farzdır.",
     "source": "İbn Mace, Mukaddime, 17",
     "category": "İlim",
-    "arabic": "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ"
+    "arabic": "طَلَبُ الْعِلْمِ فَرِيضَةٌ"
   },
   {
     "id": "7",
-    "text": "Allah, sizin suretlerinize ve mallarınıza bakmaz; kalplerinize ve amellerinize bakar.",
+    "text": "Allah sizin suretlerinize değil, kalplerinize bakar.",
     "source": "Müslim, Birr, 33",
     "category": "İman & İhlas",
     "arabic": "إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ"
@@ -60,7 +60,7 @@
     "text": "Komşusu açken tok yatan bizden değildir.",
     "source": "Hakim, Müstedrek",
     "category": "Sosyal Hayat",
-    "arabic": "مَا آمَنَ بِي مَنْ بَاتَ شَبْعَانَ وَجَارُهُ جَائِعٌ"
+    "arabic": "مَا آمَنَ بِي مَنْ بَاتَ شَبْعَانَ"
   },
   {
     "id": "10",
@@ -71,17 +71,17 @@
   },
   {
     "id": "11",
-    "text": "Allah her işte ihsanı (güzel davranmayı) emretmiştir.",
+    "text": "Allah her işte ihsanı emretmiştir.",
     "source": "Müslim, Sayd, 57",
     "category": "Ahlak",
-    "arabic": "إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ"
+    "arabic": "إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ"
   },
   {
     "id": "12",
-    "text": "Kıyamet günü mizanda en ağır basacak şey güzel ahlaktır.",
+    "text": "Mizanda en ağır basacak şey güzel ahlaktır.",
     "source": "Tirmizi, Birr, 62",
     "category": "Ahlak",
-    "arabic": "مَا مِنْ شَيْءٍ أَثْقَلُ فِي الْمِيزَانِ مِنْ حُسْنِ الْخُلُقِ"
+    "arabic": "أَثْقَلُ فِي الْمِيزَانِ حُسْنُ الْخُلُقِ"
   },
   {
     "id": "13",
@@ -92,7 +92,7 @@
   },
   {
     "id": "14",
-    "text": "Allah'a yemin ederim ki, iman etmedikçe cennete giremezsiniz.",
+    "text": "İman etmedikçe cennete giremezsiniz.",
     "source": "Müslim, Îmân, 93",
     "category": "İman & İhlas",
     "arabic": "لَا تَدْخُلُونَ الْجَنَّةَ حَتَّى تُؤْمِنُوا"
@@ -106,10 +106,10 @@
   },
   {
     "id": "16",
-    "text": "Allah'a ve ahiret gününe iman eden, komşusuna eziyet etmesin.",
+    "text": "Komşusuna eziyet etmesin.",
     "source": "Buhârî, Edeb, 31",
     "category": "Sosyal Hayat",
-    "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلَا يُؤْذِ جَارَهُ"
+    "arabic": "فَلَا يُؤْذِ جَارَهُ"
   },
   {
     "id": "17",
@@ -123,160 +123,377 @@
     "text": "Sözün en doğrusu Allah'ın Kitabıdır.",
     "source": "Müslim, Cum'a, 43",
     "category": "İlim",
-    "arabic": "فَإِنَّ خَيْرَ الْحَدِيثِ كِتَابُ اللَّهِ"
+    "arabic": "خَيْرَ الْحَدِيثِ كِتَابُ اللَّهِ"
   },
   {
     "id": "19",
-    "text": "Kim bir Müslümanın dünya sıkıntılarından birini giderirse, Allah da onun kıyamet sıkıntılarından birini giderir.",
+    "text": "Kim bir Müslümanın sıkıntısını giderirse Allah da onunkini giderir.",
     "source": "Müslim, Zikir, 38",
     "category": "Sosyal Hayat",
     "arabic": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً"
   },
   {
     "id": "20",
-    "text": "Mümin, eğrilik bilmez doğru bir terazi gibidir.",
-    "source": "İbn Hanbel, 3/155",
-    "category": "Ahlak",
-    "arabic": "الْمُؤْمِنُ كَالْمِيزَانِ"
-  },
-  {
-    "id": "21",
     "text": "Sadaka vermek malı eksiltmez.",
     "source": "Müslim, Birr, 69",
     "category": "Sosyal Hayat",
     "arabic": "مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ"
   },
   {
-    "id": "22",
-    "text": "Kim bana iki çenesi ile iki bacağı arasındakini garanti verirse, ben de ona cenneti garanti veririm.",
-    "source": "Buhârî, Rikâk, 23",
-    "category": "Ahlak",
-    "arabic": "مَنْ يَضْمَنْ لِي مَا بَيْنَ لَحْيَيْهِ"
-  },
-  {
-    "id": "23",
-    "text": "Allah katında en sevimli amel, az da olsa devamlı olanıdır.",
+    "id": "21",
+    "text": "Allah katında en sevimli amel, az da olsa devamlı olandır.",
     "source": "Buhârî, Îmân, 32",
     "category": "İbadet",
-    "arabic": "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا"
+    "arabic": "أَحَبُّ الْأَعْمَالِ أَدْوَمُهَا"
   },
   {
-    "id": "24",
+    "id": "22",
     "text": "Mümin müminin aynasıdır.",
     "source": "Ebû Dâvûd, Edeb, 49",
     "category": "Sosyal Hayat",
     "arabic": "الْمُؤْمِنُ مِرْآةُ الْمُؤْمِنِ"
   },
   {
-    "id": "25",
-    "text": "Allah'ım! Faydasız ilimden sana sığınırım.",
+    "id": "23",
+    "text": "Faydasız ilimden sana sığınırım.",
     "source": "Müslim, Zikir, 73",
     "category": "İlim",
-    "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ"
+    "arabic": "أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ"
   },
   {
-    "id": "26",
+    "id": "24",
     "text": "Hikmetin başı Allah korkusudur.",
     "source": "Tirmizi, Zühd, 10",
     "category": "İlim",
     "arabic": "رَأْسُ الْحِكْمَةِ مَخَافَةُ اللَّهِ"
   },
   {
-    "id": "27",
-    "text": "Mümin, bir delikten iki kere sokulmaz.",
+    "id": "25",
+    "text": "Mümin bir delikten iki kere sokulmaz.",
     "source": "Buhârî, Edeb, 83",
     "category": "Ahlak",
-    "arabic": "لَا يُلْدَغُ الْمُؤْمِنُ مِنْ جُحْرٍ مَرَّتَيْنِ"
+    "arabic": "لَا يُلْدَغُ الْمُؤْمِنُ مِنْ جُحْرٍ"
   },
   {
-    "id": "28",
+    "id": "26",
     "text": "Oruç kalkandır.",
     "source": "Buhârî, Savm, 2",
     "category": "İbadet",
     "arabic": "الصِّيَامُ جُنَّةٌ"
   },
   {
-    "id": "29",
-    "text": "Zenginlik mal çokluğu değil, gönül tokluğudur.",
+    "id": "27",
+    "text": "Zenginlik gönül tokluğudur.",
     "source": "Buhârî, Rikâk, 15",
     "category": "Ahlak",
     "arabic": "لَيْسَ الْغِنَى عَنْ كَثْرَةِ الْعَرَضِ"
   },
   {
-    "id": "30",
-    "text": "Allah sabredenlerle beraberdir.",
-    "source": "Bakara, 153",
-    "category": "İman & İhlas",
-    "arabic": "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ"
-  },
-  {
-    "id": "31",
+    "id": "28",
     "text": "Birbirinize kin beslemeyin, haset etmeyin.",
     "source": "Buhârî, Edeb, 57",
     "category": "Sosyal Hayat",
     "arabic": "لَا تَحَاسَدُوا وَلَا تَبَاغَضُوا"
   },
   {
-    "id": "32",
-    "text": "Allah her şeyi bilendir, hikmet sahibidir.",
-    "source": "Nûr, 35",
-    "category": "İlim",
-    "arabic": "وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ"
-  },
-  {
-    "id": "33",
-    "text": "Ey iman edenler! Allah'tan korkun ve doğrularla beraber olun.",
-    "source": "Tevbe, 119",
-    "category": "İman & İhlas",
-    "arabic": "اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ"
-  },
-  {
-    "id": "34",
+    "id": "29",
     "text": "Allah'a tevekkül et. Vekil olarak Allah yeter.",
     "source": "Ahzâb, 3",
     "category": "İman & İhlas",
-    "arabic": "وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَى بِاللَّهِ وَكِيلًا"
+    "arabic": "وَتَوَكَّلْ عَلَى اللَّهِ"
   },
   {
-    "id": "35",
-    "text": "Rabbim! İlmimi artır.",
-    "source": "Tâhâ, 114",
-    "category": "İlim",
-    "arabic": "رَبِّ زِدْنِي عِلْمًا"
-  },
-  {
-    "id": "36",
-    "text": "Allah adaletli davrananları sever.",
-    "source": "Mümtehine, 8",
-    "category": "Ahlak",
-    "arabic": "إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ"
-  },
-  {
-    "id": "37",
+    "id": "30",
     "text": "Kim bir iyilik yaparsa, ona on katı verilir.",
     "source": "En'âm, 160",
     "category": "İbadet",
     "arabic": "مَنْ جَاءَ بِالْحَسَنَةِ فَلَهُ عَشْرُ أَمْثَالِهَا"
   },
   {
-    "id": "38",
-    "text": "De ki: Hiç bilenlerle bilmeyenler bir olur mu?",
+    "id": "31",
+    "text": "Hiç bilenlerle bilmeyenler bir olur mu?",
     "source": "Zümer, 9",
     "category": "İlim",
-    "arabic": "هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ"
+    "arabic": "هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ"
   },
   {
-    "id": "39",
+    "id": "32",
     "text": "Allah size kolaylık diler, zorluk dilemez.",
     "source": "Bakara, 185",
     "category": "İbadet",
-    "arabic": "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ"
+    "arabic": "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ"
   },
   {
-    "id": "40",
-    "text": "Yalnız sana ibadet eder ve yalnız senden yardım dileriz.",
+    "id": "33",
+    "text": "Yalnız sana ibadet ederiz.",
     "source": "Fâtiha, 5",
     "category": "İbadet",
     "arabic": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+  },
+  {
+    "id": "34",
+    "text": "Cennet annelerin ayakları altındadır.",
+    "source": "Nesâî, Cihâd, 6",
+    "category": "Aile",
+    "arabic": "الْجَنَّةُ تَحْتَ أَقْدَامِ الْأُمَّهَاتِ"
+  },
+  {
+    "id": "35",
+    "text": "Allah katında en hayırlınız, ailesine en hayırlı olanınızdır.",
+    "source": "Tirmizi, Menâkıb, 63",
+    "category": "Aile",
+    "arabic": "خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ"
+  },
+  {
+    "id": "36",
+    "text": "Müminler birbirini sevmede, merhamet etmede bir vücut gibidir.",
+    "source": "Buhârî, Edeb, 27",
+    "category": "Sosyal Hayat",
+    "arabic": "مَثَلُ الْمُؤْمِنِينَ فِي تَوَادِّهِمْ"
+  },
+  {
+    "id": "37",
+    "text": "Kıyamet günü kulun hesaba çekileceği ilk şey namazdır.",
+    "source": "Tirmizi, Salât, 188",
+    "category": "İbadet",
+    "arabic": "أَوَّلُ مَا يُحَاسَبُ بِهِ الْعَبْدُ الصَّلَاةُ"
+  },
+  {
+    "id": "38",
+    "text": "Kim Allah için sever, Allah için buğzederse imanı kemale ermiştir.",
+    "source": "Ebû Dâvûd, Sünnet, 15",
+    "category": "İman & İhlas",
+    "arabic": "مَنْ أَحَبَّ لِلَّهِ وَأَبْغَضَ لِلَّهِ"
+  },
+  {
+    "id": "39",
+    "text": "Şüphesiz her zorlukla beraber bir kolaylık vardır.",
+    "source": "İnşirah, 5-6",
+    "category": "Zor Anlarda",
+    "arabic": "إِنَّ مَعَ الْعُسْرِ يُسْرًا"
+  },
+  {
+    "id": "40",
+    "text": "Ey iman edenler! Sabır ve namazla Allah'tan yardım dileyin.",
+    "source": "Bakara, 153",
+    "category": "İbadet",
+    "arabic": "اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ"
+  },
+  {
+    "id": "41",
+    "text": "Allah tövbe edenleri ve temizlenenleri sever.",
+    "source": "Bakara, 222",
+    "category": "İman & İhlas",
+    "arabic": "إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ"
+  },
+  {
+    "id": "42",
+    "text": "Mümin erkekler ve mümin kadınlar birbirlerinin velileridir.",
+    "source": "Tevbe, 71",
+    "category": "Sosyal Hayat",
+    "arabic": "وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ"
+  },
+  {
+    "id": "43",
+    "text": "Allah'a güven, O sana yeter.",
+    "source": "Enfâl, 64",
+    "category": "İman & İhlas",
+    "arabic": "حَسْبُكَ اللَّهُ"
+  },
+  {
+    "id": "44",
+    "text": "Rabbinin adını yücelt.",
+    "source": "A'lâ, 1",
+    "category": "İbadet",
+    "arabic": "سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَى"
+  },
+  {
+    "id": "45",
+    "text": "Allah'ı çok zikredin ki kurtuluşa eresiniz.",
+    "source": "Cum'a, 10",
+    "category": "İbadet",
+    "arabic": "وَاذْكُرُوا اللَّهَ كَثِيرًا"
+  },
+  {
+    "id": "46",
+    "text": "Allah'ın rahmetinden ümit kesmeyin.",
+    "source": "Zümer, 53",
+    "category": "İman & İhlas",
+    "arabic": "لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ"
+  },
+  {
+    "id": "47",
+    "text": "Rabbinizin mağfiretine koşun.",
+    "source": "Âl-i İmrân, 133",
+    "category": "İbadet",
+    "arabic": "وَسَارِعُوا إِلَى مَغْفِرَةٍ مِنْ رَبِّكُمْ"
+  },
+  {
+    "id": "48",
+    "text": "Allah'a borç verin, kat kat ödesin.",
+    "source": "Bakara, 245",
+    "category": "Sosyal Hayat",
+    "arabic": "مَنْ ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا"
+  },
+  {
+    "id": "49",
+    "text": "Namazlarınızı ve orta namazı koruyun.",
+    "source": "Bakara, 238",
+    "category": "İbadet",
+    "arabic": "حَافِظُوا عَلَى الصَّلَوَاتِ"
+  },
+  {
+    "id": "50",
+    "text": "Allah sizi analarınızın karnından hiçbir şey bilmezken çıkardı.",
+    "source": "Nahl, 78",
+    "category": "İlim",
+    "arabic": "وَاللَّهُ أَخْرَجَكُمْ مِنْ بُطُونِ أُمَّهَاتِكُمْ"
+  },
+  {
+    "id": "51",
+    "text": "Rabbim! İlmimi artır.",
+    "source": "Tâhâ, 114",
+    "category": "İlim",
+    "arabic": "رَبِّ زِدْنِي عِلْمًا"
+  },
+  {
+    "id": "52",
+    "text": "Ey Rabbim! Beni ve soyumu namaz kılanlardan eyle.",
+    "source": "İbrâhim, 40",
+    "category": "Aile",
+    "arabic": "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ"
+  },
+  {
+    "id": "53",
+    "text": "Rabbimiz! Bize dünyada da ahirette de iyilik ver.",
+    "source": "Bakara, 201",
+    "category": "Dua",
+    "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً"
+  },
+  {
+    "id": "54",
+    "text": "Allah'tan bağışlanma dile. Şüphesiz Allah çok bağışlayandır.",
+    "source": "Nisâ, 106",
+    "category": "İman & İhlas",
+    "arabic": "وَاسْتَغْفِرِ اللَّهَ"
+  },
+  {
+    "id": "55",
+    "text": "Mümin kardeşini güler yüzle karşılaman sadakadır.",
+    "source": "Tirmizi, Birr, 36",
+    "category": "Ahlak",
+    "arabic": "لَا تَحْقِرَنَّ مِنَ الْمَعْرُوفِ شَيْئًا"
+  },
+  {
+    "id": "56",
+    "text": "Rızkın en hayırlısı el emeğiyle kazanılandır.",
+    "source": "Buhârî, Büyû, 15",
+    "category": "Rızık",
+    "arabic": "مَا أَكَلَ أَحَدٌ طَعَامًا قَطُّ خَيْرًا"
+  },
+  {
+    "id": "57",
+    "text": "Zandan sakının, zan sözün en yalanıdır.",
+    "source": "Buhârî, Edeb, 57",
+    "category": "Ahlak",
+    "arabic": "إِيَّاكُمْ وَالظَّنَّ"
+  },
+  {
+    "id": "58",
+    "text": "Güçlü kimse, öfkelendiğinde kendine hakim olandır.",
+    "source": "Buhârî, Edeb, 76",
+    "category": "Ahlak",
+    "arabic": "لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ"
+  },
+  {
+    "id": "59",
+    "text": "Müslüman, insanların elinden ve dilinden emin olduğu kimsedir.",
+    "source": "Nesâî, Îmân, 8",
+    "category": "Ahlak",
+    "arabic": "الْمُسْلِمُ مَنْ سَلِمَ النَّاسُ"
+  },
+  {
+    "id": "60",
+    "text": "Allah'ım! Senden hidayet, takva, iffet ve gönül zenginliği isterim.",
+    "source": "Müslim, Zikir, 72",
+    "category": "Dua",
+    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى"
+  },
+  {
+    "id": "61",
+    "text": "Ey kalpleri evirip çeviren Allah'ım! Kalbimi dinin üzere sabit kıl.",
+    "source": "Tirmizi, Kader, 7",
+    "category": "Dua",
+    "arabic": "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي"
+  },
+  {
+    "id": "62",
+    "text": "Zulmetmekten sakının. Zulüm kıyamet günü karanlıklardır.",
+    "source": "Müslim, Birr, 56",
+    "category": "Ahlak",
+    "arabic": "اتَّقُوا الظُّلْمَ"
+  },
+  {
+    "id": "63",
+    "text": "Dünyada bir garip veya yolcu gibi ol.",
+    "source": "Buhârî, Rikâk, 3",
+    "category": "Zühd",
+    "arabic": "كُنْ فِي الدُّنْيَا كَأَنَّكَ غَرِيبٌ"
+  },
+  {
+    "id": "64",
+    "text": "Ölmeden önce hayatının, hastalanmadan önce sağlığının kıymetini bil.",
+    "source": "Buhârî, Rikâk, 3",
+    "category": "Zühd",
+    "arabic": "اغْتَنِمْ خَمْسًا قَبْلَ خَمْسٍ"
+  },
+  {
+    "id": "65",
+    "text": "Sana şüphe vereni bırak, şüphe vermeyene bak.",
+    "source": "Tirmizi, Kıyâme, 60",
+    "category": "İlim",
+    "arabic": "دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ"
+  },
+  {
+    "id": "66",
+    "text": "Allah'a yemin olsun ki mümin, komşusuna eziyet etmez.",
+    "source": "Buhârî, Edeb, 31",
+    "category": "Sosyal Hayat",
+    "arabic": "وَاللَّهِ لَا يُؤْمِنُ"
+  },
+  {
+    "id": "67",
+    "text": "Söz taşıyanlar cennete giremez.",
+    "source": "Buhârî, Edeb, 50",
+    "category": "Ahlak",
+    "arabic": "لَا يَدْخُلُ الْجَنَّةَ نَمَّامٌ"
+  },
+  {
+    "id": "68",
+    "text": "Akrabalık bağını koparan cennete giremez.",
+    "source": "Buhârî, Edeb, 11",
+    "category": "Aile",
+    "arabic": "لَا يَدْخُلُ الْجَنَّةَ قَاطِعُ رَحِمٍ"
+  },
+  {
+    "id": "69",
+    "text": "Suyun ateşi söndürdüğü gibi sadaka da günahları söndürür.",
+    "source": "Tirmizi, Îmân, 8",
+    "category": "Sosyal Hayat",
+    "arabic": "الصَّدَقَةُ تُطْفِئُ الْخَطِيئَةَ"
+  },
+  {
+    "id": "70",
+    "text": "Bir kul Allah rızası için bir şeyi terk ederse, Allah ona daha hayırlısını verir.",
+    "source": "İbn Hanbel, 5/363",
+    "category": "Zühd",
+    "arabic": "مَنْ تَرَكَ شَيْئًا لِلَّهِ"
+  },
+  {
+    "id": "71",
+    "text": "Kıyamet günü herkes sevdiğiyle beraberdir.",
+    "source": "Buhârî, Edeb, 96",
+    "category": "Ahlak",
+    "arabic": "الْمَرْءُ مَعَ مَنْ أَحَبَّ"
   }
 ]

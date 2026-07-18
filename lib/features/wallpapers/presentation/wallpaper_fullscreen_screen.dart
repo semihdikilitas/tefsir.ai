@@ -17,11 +17,13 @@ import '../data/wallpaper_models.dart';
 class WallpaperFullscreenScreen extends StatefulWidget {
   final int initialIndex;
   final bool isPremium;
+  final bool singleMode; // true = sadece bu wallpaper, kaydirma yok
 
   const WallpaperFullscreenScreen({
     super.key,
     required this.initialIndex,
     this.isPremium = false,
+    this.singleMode = false,
   });
 
   @override
@@ -288,14 +290,18 @@ class _WallpaperFullscreenScreenState extends State<WallpaperFullscreenScreen> {
             fit: StackFit.expand,
             children: [
               // PageView — resim + ayet her sayfada birlikte
-              PageView.builder(
-                controller: _pageController,
-                itemCount: _wallpapers.length,
-                onPageChanged: (page) => setState(() => _currentPage = page),
-                itemBuilder: (context, index) {
-                  return _buildWallpaperPage(index);
-                },
-              ),
+              // singleMode: sadece tek wallpaper, kaydirma kapali
+              if (widget.singleMode)
+                _buildWallpaperPage(_currentPage)
+              else
+                PageView.builder(
+                  controller: _pageController,
+                  itemCount: _wallpapers.length,
+                  onPageChanged: (page) => setState(() => _currentPage = page),
+                  itemBuilder: (context, index) {
+                    return _buildWallpaperPage(index);
+                  },
+                ),
 
               // Ust bar — her zaman gorunur, yari seffaf
               Positioned(
@@ -338,22 +344,6 @@ class _WallpaperFullscreenScreenState extends State<WallpaperFullscreenScreen> {
                 ),
               ),
 
-              // Sayfa gostergesi — sag alt kosede
-              Positioned(
-                bottom: 16,
-                right: 16,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.4),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Text(
-                    '${_currentPage + 1} / ${_wallpapers.length}',
-                    style: const TextStyle(color: Colors.white70, fontSize: 12),
-                  ),
-                ),
-              ),
 
               // Capture loading indicator
               if (_capturing)

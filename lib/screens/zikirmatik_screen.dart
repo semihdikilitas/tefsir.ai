@@ -335,6 +335,17 @@ class _ZikirmatikScreenState extends State<ZikirmatikScreen>
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
+        backgroundColor: AppColors.background,
+        elevation: 0,
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, color: AppColors.gold),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: const Text(
+          'Zikirmatik',
+          style: TextStyle(color: AppColors.gold, fontSize: 20, fontWeight: FontWeight.w600),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8.0),

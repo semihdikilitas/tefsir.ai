@@ -8,6 +8,8 @@ import '../data/services/location_service.dart';
 import '../data/services/prayer_times_service.dart';
 import '../data/services/wallpaper_preferences.dart';
 import '../core/services/wallpaper_service.dart';
+import '../data/services/premium_service.dart';
+import '../data/services/wallpaper_auto_service.dart';
 import '../data/services/widget_service.dart';
 import '../features/wallpapers/presentation/wallpaper_verse_card.dart';
 import '../features/wallpapers/presentation/wallpaper_fullscreen_screen.dart';
@@ -61,6 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
     // Widget verisini ilk yuklemede kaydet
     final idx = prefs.lastWallpaperIndex.clamp(0, WallpaperRegistry.all.length - 1);
     WidgetService.updateWidget(idx);
+
+    // Premium: otomatik duvar kagidi degisimi kontrolu
+    WallpaperAutoService.checkAndApply();
   }
 
   @override
@@ -81,18 +86,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _initWallpaper() async {
     final prefs = await WallpaperPreferences.load();
-    final premium = await WallpaperPreferences.isPremium;
+    final premium = await PremiumService.isPremium;
 
-    var index = prefs.lastWallpaperIndex;
-    // Otomatik değişim kontrolü
-    if (prefs.autoChangeEnabled) {
-      final daysSince = DateTime.now().difference(prefs.lastChangeDate).inDays;
-      if (daysSince >= prefs.changeIntervalDays) {
-        index = (index + 1) % WallpaperRegistry.all.length;
-        await WallpaperPreferences.saveWallpaperIndex(index);
-        await WallpaperPreferences.saveLastChangeDate(DateTime.now());
-      }
-    }
+    // Her gece 00:00'da degisen gunluk indeks hesabi
+    // Aralik 1, 3 veya 7 gun olabilir
+    final now = DateTime.now();
+    final dayOfYear = now.difference(DateTime(now.year, 1, 1)).inDays;
+    final interval = prefs.autoChangeEnabled ? prefs.changeIntervalDays : 1;
+    final index = (dayOfYear ~/ interval) % WallpaperRegistry.all.length;
+
+    await WallpaperPreferences.saveWallpaperIndex(index);
 
     if (!mounted) return;
     setState(() {
@@ -110,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } catch (_) {
       if (!mounted) return;
       setState(() => _loading = false);
+      // Konum servisi veya API hatasi — offline mod
     }
   }
 
@@ -152,6 +156,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Premium durumunu her build'de kontrol et (SharedPreferences cache'li, hizli)
+    PremiumService.isPremium.then((p) {
+      if (mounted && p != _isPremium) setState(() => _isPremium = p);
+    });
     final day = _prayerDay;
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -254,7 +262,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   flex: 12,
                   child: WallpaperVerseCard(
-                    initialIndex: _currentWallpaperIndex,
+                    currentIndex: _currentWallpaperIndex,
+                    isPremium: _isPremium,
                     onTap: (index, item) => _openFullscreen(index),
                     onSetWallpaper: _isPremium
                         ? () => _handleSetWallpaper(_currentWallpaperIndex)
@@ -325,19 +334,20 @@ class _HomeScreenState extends State<HomeScreen> {
     ]);
   }
 
-  void _openFullscreen(int index) {
-    Navigator.push(
+  void _openFullscreen(int index) async {
+    await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (_) => WallpaperFullscreenScreen(
           initialIndex: index,
           isPremium: _isPremium,
+          singleMode: true, // Sadece o gunki duvar kagidi
         ),
       ),
-    ).then((_) {
-      // Tam ekrandan dönünce indeks güncellenmiş olabilir
-      _initWallpaper();
-    });
+    );
+    // Donuste premium durumunu tazele
+    final premium = await PremiumService.isPremium;
+    if (mounted) setState(() => _isPremium = premium);
   }
 
   void _handleSetWallpaper(int index) async {

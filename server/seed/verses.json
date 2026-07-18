@@ -1,62 +1,416 @@
 [
   {
     "id": "1",
-    "text": "Şüphesiz güçlükle beraber bir kolaylık vardır.",
-    "surahName": "İnşirah Suresi",
+    "text": "Şüphesiz her zorlukla beraber bir kolaylık vardır. Evet, her zorlukla beraber bir kolaylık vardır.",
+    "surahName": "İnşirâh Suresi",
     "verseNumbers": "5-6"
   },
   {
     "id": "2",
-    "text": "Allah sabredenlerle beraberdir.",
+    "text": "Allah hiçbir nefse gücünün yetmeyeceğinden fazlasını yüklemez.",
     "surahName": "Bakara Suresi",
-    "verseNumbers": "153"
+    "verseNumbers": "286"
   },
   {
     "id": "3",
-    "text": "Rabbiniz size: Bana dua edin, size icabet edeyim buyurdu.",
-    "surahName": "Mümin Suresi",
-    "verseNumbers": "60"
+    "text": "Allah'ın rahmetinden ümit kesmeyin. Çünkü Allah bütün günahları bağışlar. Şüphesiz O, çok bağışlayan ve çok merhamet edendir.",
+    "surahName": "Zümer Suresi",
+    "verseNumbers": "53"
   },
   {
     "id": "4",
-    "text": "Allahın ipine hepiniz sımsıkı sarılın, ayrılmayın.",
-    "surahName": "Âl-i İmrân Suresi",
-    "verseNumbers": "103"
+    "text": "Rabbin seni terk etmedi ve sana darılmadı. Elbette senin için sonu önünden daha hayırlı olacaktır.",
+    "surahName": "Duhâ Suresi",
+    "verseNumbers": "3-4"
   },
   {
     "id": "5",
-    "text": "Kim Allaha dayanırsa, kuşkusuz doğru yola erişmiştir.",
-    "surahName": "Âl-i İmrân Suresi",
-    "verseNumbers": "101"
+    "text": "Rabbinin rahmetini onlar mı bölüştürüyorlar? Dünya hayatında onların geçimliklerini aralarında biz bölüştürdük.",
+    "surahName": "Zuhruf Suresi",
+    "verseNumbers": "32"
   },
   {
     "id": "6",
-    "text": "De ki: Hiç bilenlerle bilmeyenler bir olur mu?",
-    "surahName": "Zümer Suresi",
-    "verseNumbers": "9"
-  },
-  {
-    "id": "7",
     "text": "Allah size kolaylık diler, zorluk dilemez.",
     "surahName": "Bakara Suresi",
     "verseNumbers": "185"
   },
   {
+    "id": "7",
+    "text": "Allah, sabredenlerle beraberdir.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "153"
+  },
+  {
     "id": "8",
-    "text": "Göklerin ve yerin yaratılışında akıl sahipleri için deliller vardır.",
-    "surahName": "Âl-i İmrân Suresi",
-    "verseNumbers": "190"
+    "text": "Sabır ve namazla Allah'tan yardım dileyin. Şüphesiz bu, huşû duyanlardan başkasına ağır gelir.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "45"
   },
   {
     "id": "9",
-    "text": "Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver.",
+    "text": "De ki: Ey kendi nefisleri aleyhine aşırı giden kullarım! Allah'ın rahmetinden ümit kesmeyin.",
+    "surahName": "Zümer Suresi",
+    "verseNumbers": "53"
+  },
+  {
+    "id": "10",
+    "text": "Eğer şükreder ve iman ederseniz, Allah size azap etmeyi ne yapsın?",
+    "surahName": "Nisâ Suresi",
+    "verseNumbers": "147"
+  },
+  {
+    "id": "11",
+    "text": "Andolsun ki insanı biz yarattık ve nefsinin ona ne fısıldadığını biliriz. Biz ona şah damarından daha yakınız.",
+    "surahName": "Kâf Suresi",
+    "verseNumbers": "16"
+  },
+  {
+    "id": "12",
+    "text": "Kullarım sana beni sorduklarında, şüphesiz ben çok yakınım. Bana dua edince duacının duasına karşılık veririm.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "186"
+  },
+  {
+    "id": "13",
+    "text": "Nerede olursanız olun, O sizinle beraberdir. Allah yaptıklarınızı görendir.",
+    "surahName": "Hadîd Suresi",
+    "verseNumbers": "4"
+  },
+  {
+    "id": "14",
+    "text": "O, kullarının üstünde mutlak hâkimiyet sahibidir. Size koruyucular gönderir. Nihayet birinize ölüm geldiğinde elçilerimiz onun canını alır.",
+    "surahName": "En'âm Suresi",
+    "verseNumbers": "61"
+  },
+  {
+    "id": "15",
+    "text": "Allah bize yeter, O ne güzel vekildir.",
+    "surahName": "Âl-i İmrân Suresi",
+    "verseNumbers": "173"
+  },
+  {
+    "id": "16",
+    "text": "Rabbimiz! Unutur ya da yanılırsak bizi sorgulama. Rabbimiz! Bize bizden öncekilere yüklediğin gibi ağır yük yükleme. Rabbimiz! Gücümüzün yetmediğini bize taşıtma.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "286"
+  },
+  {
+    "id": "17",
+    "text": "Rabbim! Göğsüme genişlik ver. İşimi kolaylaştır. Dilimin düğümünü çöz ki sözümü anlasınlar.",
+    "surahName": "Tâhâ Suresi",
+    "verseNumbers": "25-28"
+  },
+  {
+    "id": "18",
+    "text": "Yoksa siz, sizden öncekilerin başına gelenler sizin de başınıza gelmeden cennete gireceğinizi mi sandınız? Onlara yoksulluk ve sıkıntı öylesine dokunmuştu ki, peygamber ve beraberindeki müminler «Allah'ın yardımı ne zaman?» diyecek kadar sarsılmışlardı. İyi bilin ki Allah'ın yardımı gerçekten çok yakındır.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "214"
+  },
+  {
+    "id": "19",
+    "text": "Allah'ın ipine hepiniz sımsıkı sarılın, ayrılmayın.",
+    "surahName": "Âl-i İmrân Suresi",
+    "verseNumbers": "103"
+  },
+  {
+    "id": "20",
+    "text": "Kim Allah'a dayanırsa, kuşkusuz doğru yola erişmiştir.",
+    "surahName": "Âl-i İmrân Suresi",
+    "verseNumbers": "101"
+  },
+  {
+    "id": "21",
+    "text": "Ey iman edenler! Allah'tan korkun ve doğrularla beraber olun.",
+    "surahName": "Tevbe Suresi",
+    "verseNumbers": "119"
+  },
+  {
+    "id": "22",
+    "text": "Allah'a tevekkül et. Vekil olarak Allah yeter.",
+    "surahName": "Ahzâb Suresi",
+    "verseNumbers": "48"
+  },
+  {
+    "id": "23",
+    "text": "Biz ona şah damarından daha yakınız.",
+    "surahName": "Kâf Suresi",
+    "verseNumbers": "16"
+  },
+  {
+    "id": "24",
+    "text": "Rabbim! Beni tek başıma bırakma. Sen varislerin en hayırlısısın.",
+    "surahName": "Enbiyâ Suresi",
+    "verseNumbers": "89"
+  },
+  {
+    "id": "25",
+    "text": "Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateş azabından koru.",
     "surahName": "Bakara Suresi",
     "verseNumbers": "201"
   },
   {
-    "id": "10",
-    "text": "Allaha tevekkül et. Vekil olarak Allah yeter.",
-    "surahName": "Ahzâb Suresi",
-    "verseNumbers": "3"
+    "id": "26",
+    "text": "Rabbim! İlmimi artır.",
+    "surahName": "Tâhâ Suresi",
+    "verseNumbers": "114"
+  },
+  {
+    "id": "27",
+    "text": "Rabbim! Beni ve soyumu namaz kılanlardan eyle. Rabbimiz! Duamı kabul buyur.",
+    "surahName": "İbrâhim Suresi",
+    "verseNumbers": "40"
+  },
+  {
+    "id": "28",
+    "text": "Ey Rabbimiz! Bize katından bir rahmet ver ve işimizde doğruyu göster.",
+    "surahName": "Kehf Suresi",
+    "verseNumbers": "10"
+  },
+  {
+    "id": "29",
+    "text": "Rabbimiz! Bizi doğru yola eriştirdikten sonra kalplerimizi eğriltme. Bize katından bir rahmet bağışla.",
+    "surahName": "Âl-i İmrân Suresi",
+    "verseNumbers": "8"
+  },
+  {
+    "id": "30",
+    "text": "Biz insanı en güzel biçimde yarattık.",
+    "surahName": "Tîn Suresi",
+    "verseNumbers": "4"
+  },
+  {
+    "id": "31",
+    "text": "Sizin yaratılışınızda ve yeryüzüne yayılmış canlılarda, kesin olarak inanan bir toplum için ibretler vardır.",
+    "surahName": "Câsiye Suresi",
+    "verseNumbers": "4"
+  },
+  {
+    "id": "32",
+    "text": "Hiç bilenlerle bilmeyenler bir olur mu?",
+    "surahName": "Zümer Suresi",
+    "verseNumbers": "9"
+  },
+  {
+    "id": "33",
+    "text": "Kim bir iyilik yaparsa, ona on katı verilir.",
+    "surahName": "En'âm Suresi",
+    "verseNumbers": "160"
+  },
+  {
+    "id": "34",
+    "text": "Allah adaletli davrananları sever.",
+    "surahName": "Mümtehine Suresi",
+    "verseNumbers": "8"
+  },
+  {
+    "id": "35",
+    "text": "İyilik ve takva üzere yardımlaşın, günah ve düşmanlık üzere yardımlaşmayın.",
+    "surahName": "Mâide Suresi",
+    "verseNumbers": "2"
+  },
+  {
+    "id": "36",
+    "text": "Allah size emanetleri ehline vermenizi emreder.",
+    "surahName": "Nisâ Suresi",
+    "verseNumbers": "58"
+  },
+  {
+    "id": "37",
+    "text": "De ki: Rabbim ancak açık ve gizli olan çirkinlikleri, günahı, haksız yere saldırmayı haram kıldı.",
+    "surahName": "A'râf Suresi",
+    "verseNumbers": "33"
+  },
+  {
+    "id": "38",
+    "text": "Sen af yolunu tut, iyiliği emret ve cahillerden yüz çevir.",
+    "surahName": "A'râf Suresi",
+    "verseNumbers": "199"
+  },
+  {
+    "id": "39",
+    "text": "Bir topluluğa olan kininiz sizi adaletten ayırmasın. Adaletli olun, takvaya en uygun olan budur.",
+    "surahName": "Mâide Suresi",
+    "verseNumbers": "8"
+  },
+  {
+    "id": "40",
+    "text": "Olmasını istediği bir şeyde O'nun buyruğu sadece «Ol!» demesidir; o da hemen oluverir.",
+    "surahName": "Yâsîn Suresi",
+    "verseNumbers": "82"
+  },
+  {
+    "id": "41",
+    "text": "O, korku ve ümit vermek için size şimşeği gösterendir. Yağmur yüklü bulutları meydana getirendir.",
+    "surahName": "Ra'd Suresi",
+    "verseNumbers": "12"
+  },
+  {
+    "id": "42",
+    "text": "Gökleri ve yeri yaratan, onların benzerini yaratmaya kadir değil midir? Elbette kadirdir.",
+    "surahName": "Yâsîn Suresi",
+    "verseNumbers": "81"
+  },
+  {
+    "id": "43",
+    "text": "Allah bir şeyi diledi mi, onun emri sadece «Ol!» demektir, o da oluverir.",
+    "surahName": "Yâsîn Suresi",
+    "verseNumbers": "82"
+  },
+  {
+    "id": "44",
+    "text": "O'nun bilgisi dışında bir yaprak bile düşmez.",
+    "surahName": "En'âm Suresi",
+    "verseNumbers": "59"
+  },
+  {
+    "id": "45",
+    "text": "Allah, kendisinden başka ilah olmayandır. En güzel isimler O'nundur.",
+    "surahName": "Tâhâ Suresi",
+    "verseNumbers": "8"
+  },
+  {
+    "id": "46",
+    "text": "Allah göklerin ve yerin nurudur.",
+    "surahName": "Nûr Suresi",
+    "verseNumbers": "35"
+  },
+  {
+    "id": "47",
+    "text": "Muhakkak ki Allah'ın yardımı yakındır.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "214"
+  },
+  {
+    "id": "48",
+    "text": "Göklerin ve yerin yaratılışında, gece ile gündüzün değişmesinde akıl sahipleri için deliller vardır.",
+    "surahName": "Âl-i İmrân Suresi",
+    "verseNumbers": "190"
+  },
+  {
+    "id": "49",
+    "text": "O, yaratan ve size şekil verendir. En güzel isimler O'nundur.",
+    "surahName": "Haşr Suresi",
+    "verseNumbers": "24"
+  },
+  {
+    "id": "50",
+    "text": "Allah'tan bağışlanma dile. Şüphesiz Allah çok bağışlayan ve çok merhamet edendir.",
+    "surahName": "Nisâ Suresi",
+    "verseNumbers": "106"
+  },
+  {
+    "id": "51",
+    "text": "De ki: Allah'ım, mülkün sahibi! Sen dilediğine mülkü verirsin. Dilediğinden mülkü çekip alırsın.",
+    "surahName": "Âl-i İmrân Suresi",
+    "verseNumbers": "26"
+  },
+  {
+    "id": "52",
+    "text": "Kim tövbe eder ve salih amel işlerse, şüphesiz o Allah'a gereği gibi dönmüş olur.",
+    "surahName": "Furkân Suresi",
+    "verseNumbers": "71"
+  },
+  {
+    "id": "53",
+    "text": "Allah, kullarının tövbesini kabul eden ve sadakaları alandır.",
+    "surahName": "Tevbe Suresi",
+    "verseNumbers": "104"
+  },
+  {
+    "id": "54",
+    "text": "Rabbimiz! Biz kendimize zulmettik. Eğer bizi bağışlamaz ve bize merhamet etmezsen, mutlaka kaybedenlerden oluruz.",
+    "surahName": "A'râf Suresi",
+    "verseNumbers": "23"
+  },
+  {
+    "id": "55",
+    "text": "Allah tövbe edenleri ve temizlenenleri sever.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "222"
+  },
+  {
+    "id": "56",
+    "text": "Şüphesiz rızık veren, mutlak kudret sahibi olan Allah'tır.",
+    "surahName": "Zâriyât Suresi",
+    "verseNumbers": "58"
+  },
+  {
+    "id": "57",
+    "text": "Eğer şükrederseniz, size nimetlerimi artıracağım.",
+    "surahName": "İbrâhim Suresi",
+    "verseNumbers": "7"
+  },
+  {
+    "id": "58",
+    "text": "Nice canlı vardır ki rızkını sırtında taşımaz. Onları da sizi de rızıklandıran Allah'tır.",
+    "surahName": "Ankebût Suresi",
+    "verseNumbers": "60"
+  },
+  {
+    "id": "59",
+    "text": "Gökten su indiren O'dur. Her bitkiyi onunla bitirdik.",
+    "surahName": "En'âm Suresi",
+    "verseNumbers": "99"
+  },
+  {
+    "id": "60",
+    "text": "Allah dilediğine hesapsız rızık verir.",
+    "surahName": "Bakara Suresi",
+    "verseNumbers": "212"
+  },
+  {
+    "id": "61",
+    "text": "Ey Rabbimiz! Bize sabır yağdır ve Müslüman olarak canımızı al.",
+    "surahName": "A'râf Suresi",
+    "verseNumbers": "126"
+  },
+  {
+    "id": "62",
+    "text": "De ki: Ey kendi nefisleri aleyhine aşırı giden kullarım! Allah'ın rahmetinden ümit kesmeyin.",
+    "surahName": "Zümer Suresi",
+    "verseNumbers": "53"
+  },
+  {
+    "id": "63",
+    "text": "Rabbin sana neler verecek, sen de hoşnut olacaksın.",
+    "surahName": "Duhâ Suresi",
+    "verseNumbers": "5"
+  },
+  {
+    "id": "64",
+    "text": "O seni yetim bulup barındırmadı mı? Seni yolunu kaybetmiş bulup da doğru yola iletmedi mi? Seni yoksul bulup zengin etmedi mi?",
+    "surahName": "Duhâ Suresi",
+    "verseNumbers": "6-8"
+  },
+  {
+    "id": "65",
+    "text": "Ey Muhammed! Rabbinin adıyla oku. O, insanı bir kan pıhtısından yarattı. Oku! Rabbin sonsuz kerem sahibidir.",
+    "surahName": "Alak Suresi",
+    "verseNumbers": "1-3"
+  },
+  {
+    "id": "66",
+    "text": "Sana ölüm gelinceye kadar Rabbine ibadet et.",
+    "surahName": "Hicr Suresi",
+    "verseNumbers": "99"
+  },
+  {
+    "id": "67",
+    "text": "Gördün mü, dini yalanlayanı? İşte o, yetimi itip kakan ve yoksulu doyurmayı teşvik etmeyendir.",
+    "surahName": "Mâ'ûn Suresi",
+    "verseNumbers": "1-3"
+  },
+  {
+    "id": "68",
+    "text": "Andolsun size bir kitap indirdik ki, bütün öğüt ve uyarılarınız ondadır. Hâlâ aklınızı kullanmayacak mısınız?",
+    "surahName": "Enbiyâ Suresi",
+    "verseNumbers": "10"
+  },
+  {
+    "id": "69",
+    "text": "İşte bu, âlemlere bir öğüt ve uyarıdır. Aranızdan dosdoğru olmak isteyenler için.",
+    "surahName": "Tekvîr Suresi",
+    "verseNumbers": "27-28"
   }
 ]

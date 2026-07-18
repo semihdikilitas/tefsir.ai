@@ -2,7 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../core/constants/app_colors.dart';
 import '../data/services/language_service.dart';
+import '../data/services/premium_service.dart';
 import '../data/services/wallpaper_preferences.dart';
+import '../data/services/wallpaper_auto_service.dart';
 import '../data/services/widget_service.dart';
 import 'premium_screen.dart';
 
@@ -20,6 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String _selectedTafsirSource = 'Diyanet';
   bool _autoChangeWallpaper = true;
   int _changeIntervalDays = 3;
+  bool _isPremium = false;
 
   final List<String> _languages = ['Türkçe', 'English', 'العربية', 'فارسی'];
   final List<String> _tafsirSources = ['Diyanet', 'Elmalılı', 'Kurtubi', 'Taberi'];
@@ -33,10 +36,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _loadWallpaperPrefs() async {
     final prefs = await WallpaperPreferences.load();
+    final isPremium = await PremiumService.isPremium;
     if (!mounted) return;
     setState(() {
       _autoChangeWallpaper = prefs.autoChangeEnabled;
       _changeIntervalDays = prefs.changeIntervalDays;
+      _isPremium = isPremium;
     });
   }
 
@@ -164,6 +169,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     final days = int.tryParse(v.split(' ')[0]) ?? 3;
                     setState(() => _changeIntervalDays = days);
                     _saveWallpaperAutoChange(_autoChangeWallpaper, days);
+                  },
+                ),
+                _buildDivider(),
+                _buildSwitchTile(
+                  icon: Icons.phone_android_rounded,
+                  title: 'Telefon Duvar Kağıdını Otomatik Güncelle',
+                  subtitle: _isPremium
+                      ? 'Premium: Telefonunun duvar kağıdı her gün kendiliğinden değişsin'
+                      : 'Premium abonelik gerektirir 🔒',
+                  value: _isPremium && _autoChangeWallpaper,
+                  onChanged: (v) {
+                    if (_isPremium) {
+                      WallpaperAutoService.setEnabled(v);
+                      if (v) WallpaperAutoService.checkAndApply();
+                    }
                   },
                 ),
                 _buildDivider(),

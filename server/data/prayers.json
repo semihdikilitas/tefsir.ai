@@ -3,18 +3,18 @@
     "id": "1",
     "title": "Sabah Duası",
     "category": "Sabah / Akşam",
-    "arabic": "اَللّٰهُمَّ بِكَ اَصْبَحْنَا وَبِكَ اَمْسَيْنَا",
-    "transliteration": "Allâhümme bike asbahnâ ve bike emseynâ",
-    "text": "Allahım! Sabaha Senin lütfunla eriştik, akşama Senin lütfunla ereriz.",
+    "arabic": "اَللّٰهُمَّ بِكَ اَصْبَحْنَا",
+    "transliteration": "Allâhümme bike asbahnâ",
+    "text": "Allahım! Sabaha Senin lütfunla eriştik, akşama Senin lütfunla ereriz. Senin izninle yaşarız, Senin izninle ölürüz.",
     "note": "Sabah kalkınca okunur."
   },
   {
     "id": "2",
     "title": "Akşam Duası",
     "category": "Sabah / Akşam",
-    "arabic": "اَللّٰهُمَّ بِكَ اَمْسَيْنَا وَبِكَ اَصْبَحْنَا",
-    "transliteration": "Allâhümme bike emseynâ ve bike asbahnâ",
-    "text": "Allahım! Akşama Senin lütfunla eriştik.",
+    "arabic": "اَللّٰهُمَّ بِكَ اَمْسَيْنَا",
+    "transliteration": "Allâhümme bike emseynâ",
+    "text": "Allahım! Akşama Senin lütfunla eriştik. Dönüşümüz de ancak Sanadır.",
     "note": "Akşam olunca okunur."
   },
   {
@@ -23,8 +23,8 @@
     "category": "Günlük Yaşam",
     "arabic": "بِسْمِ اللّٰهِ تَوَكَّلْتُ عَلَى اللّٰهِ",
     "transliteration": "Bismillâhi tevekkeltü alallâh",
-    "text": "Allahın adıyla, Allaha güvendim.",
-    "note": "Evden çıkarken okunur."
+    "text": "Allahın adıyla, Allaha güvendim. Güç ve kuvvet ancak Allahtandır.",
+    "note": "Evden çıkarken eşikte okunur."
   },
   {
     "id": "4",
@@ -32,7 +32,7 @@
     "category": "Günlük Yaşam",
     "arabic": "اَللّٰهُمَّ اِنّٖى اَسْـَٔلُكَ خَيْرَ الْمَوْلِجِ",
     "transliteration": "Allâhümme innî eselüke hayral-mevlic",
-    "text": "Allahım! Senden girişin hayırlısını isterim.",
+    "text": "Allahım! Senden girişin ve çıkışın hayırlısını isterim. Allahın adıyla girdik.",
     "note": "Eve girerken okunur."
   },
   {
@@ -42,7 +42,7 @@
     "arabic": "بِسْمِ اللّٰهِ",
     "transliteration": "Bismillâh",
     "text": "Allahın adıyla başlarım.",
-    "note": "Yemeğe başlarken okunur."
+    "note": "Yemeğe başlamadan önce okunur."
   },
   {
     "id": "6",
@@ -50,11 +50,20 @@
     "category": "Yemek",
     "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذٖى اَطْعَمَنٖى",
     "transliteration": "Elhamdü lillâhillezî atamenî",
-    "text": "Bana bu yemeği yediren Allaha hamd olsun.",
+    "text": "Bana bu yemeği yediren ve rızık olarak veren Allaha hamd olsun.",
     "note": "Yemekten sonra okunur."
   },
   {
     "id": "7",
+    "title": "Su İçerken",
+    "category": "Yemek",
+    "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذٖى سَقَانَا",
+    "transliteration": "Elhamdü lillâhillezî sekânâ",
+    "text": "Bizi rahmetiyle tatlı suyla sulayan Allaha hamd olsun.",
+    "note": "Su içtikten sonra okunur."
+  },
+  {
+    "id": "8",
     "title": "Uyumadan Önce",
     "category": "Uyku",
     "arabic": "بِاسْمِكَ اللّٰهُمَّ اَمُوتُ وَاَحْيَا",
@@ -63,120 +72,291 @@
     "note": "Uyumadan önce okunur."
   },
   {
-    "id": "8",
+    "id": "9",
     "title": "Uyanınca",
     "category": "Uyku",
     "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذٖى اَحْيَانَا",
     "transliteration": "Elhamdü lillâhillezî ahyânâ",
-    "text": "Bizi uyandıran Allaha hamd olsun.",
+    "text": "Bizi öldürdükten sonra dirilten Allaha hamd olsun. Dönüş ancak Onadır.",
     "note": "Uykudan uyanınca okunur."
   },
   {
-    "id": "9",
+    "id": "10",
     "title": "Yolculuğa Çıkarken",
     "category": "Yolculuk",
     "arabic": "سُبْحَانَ الَّذٖى سَخَّرَ لَنَا هٰذَا",
     "transliteration": "Sübhânellezî sehhara lenâ hâzâ",
-    "text": "Bunu hizmetimize veren Allahı tesbih ederiz.",
+    "text": "Bunu hizmetimize veren Allahı tesbih ederiz, yoksa bizim buna gücümüz yetmezdi.",
     "note": "Araca binerken okunur."
   },
   {
-    "id": "10",
+    "id": "11",
+    "title": "Yolculuktan Dönüşte",
+    "category": "Yolculuk",
+    "arabic": "اٰيِبُونَ تَٓائِبُونَ عَابِدُونَ",
+    "transliteration": "Âyibûne tâibûne âbidûn",
+    "text": "Biz Allaha dönen, tövbe eden, ibadet eden ve hamd edenleriz.",
+    "note": "Yolculuktan dönerken okunur."
+  },
+  {
+    "id": "12",
     "title": "Sıkıntı Anında",
     "category": "Zor Anlarda",
     "arabic": "حَسْبُنَا اللّٰهُ وَنِعْمَ الْوَكٖيلُ",
     "transliteration": "Hasbünallâhü ve nimel-vekîl",
     "text": "Allah bize yeter, O ne güzel vekildir.",
-    "note": "Sıkıntı anında okunur."
+    "note": "Sıkıntı, korku anında okunur."
   },
   {
-    "id": "11",
+    "id": "13",
     "title": "Musibet Anında",
     "category": "Zor Anlarda",
     "arabic": "اِنَّا لِلّٰهِ وَاِنَّٓا اِلَيْهِ رَاجِعُونَ",
     "transliteration": "İnnâ lillâhi ve innâ ileyhi râciûn",
-    "text": "Biz Allaha aitiz ve Ona döneceğiz.",
-    "note": "Musibet anında okunur."
-  },
-  {
-    "id": "12",
-    "title": "Ezan Duası",
-    "category": "Günlük Yaşam",
-    "arabic": "اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّامَّةِ",
-    "transliteration": "Allâhümme Rabbe hâzihid-davetit-tâmmeh",
-    "text": "Ey bu eksiksiz davetin Rabbi! Muhammede vesileyi ver.",
-    "note": "Ezan bitince okunur."
-  },
-  {
-    "id": "13",
-    "title": "Namaz Sonrası",
-    "category": "İbadet",
-    "arabic": "اَسْتَغْفِرُ اللّٰهَ اَسْتَغْفِرُ اللّٰهَ",
-    "transliteration": "Estağfirullâh, estağfirullâh",
-    "text": "Allahtan bağışlanma dilerim.",
-    "note": "Namazdan sonra okunur."
+    "text": "Biz Allaha aitiz ve şüphesiz Ona döneceğiz.",
+    "note": "Musibet veya kayıp anında okunur."
   },
   {
     "id": "14",
+    "title": "Ezan Duası",
+    "category": "Günlük Yaşam",
+    "arabic": "اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ",
+    "transliteration": "Allâhümme Rabbe hâzihid-davetit-tâmmeh",
+    "text": "Ey bu eksiksiz davetin Rabbi! Muhammede vesileyi ve fazileti ver.",
+    "note": "Ezan bittikten sonra okunur."
+  },
+  {
+    "id": "15",
+    "title": "Namaz Sonrası Tesbih",
+    "category": "İbadet",
+    "arabic": "سُبْحَانَ اللّٰهِ، اَلْحَمْدُ لِلّٰهِ، اَللّٰهُ اَكْبَرُ",
+    "transliteration": "Sübhânallâh, elhamdü lillâh, Allâhü ekber",
+    "text": "Allahı tesbih ederim, Allaha hamd ederim, Allah en büyüktür. (33er defa)",
+    "note": "Namazdan sonra okunur."
+  },
+  {
+    "id": "16",
+    "title": "Namaz Sonrası İstiğfar",
+    "category": "İbadet",
+    "arabic": "اَسْتَغْفِرُ اللّٰهَ اَسْتَغْفِرُ اللّٰهَ",
+    "transliteration": "Estağfirullâh, estağfirullâh",
+    "text": "Allahtan bağışlanma dilerim. Allahım! Selâm Sensin, esenlik Sendendir.",
+    "note": "Namazdan sonra üç defa okunur."
+  },
+  {
+    "id": "17",
     "title": "Kuran Okumaya Başlarken",
     "category": "İbadet",
     "arabic": "اَعُوذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجٖيمِ",
     "transliteration": "Eûzü billâhi mineş-şeytânir-racîm",
-    "text": "Kovulmuş şeytandan Allaha sığınırım.",
+    "text": "Kovulmuş şeytanın şerrinden Allaha sığınırım. Rahman ve Rahim olan Allahın adıyla.",
     "note": "Kuran okumaya başlarken okunur."
   },
   {
-    "id": "15",
+    "id": "18",
+    "title": "Kuran Hatim Duası",
+    "category": "İbadet",
+    "arabic": "اَللّٰهُمَّ اٰنِسْ وَحْشَتٖى فٖى قَبْرٖى",
+    "transliteration": "Allâhümme ânis vahşetî fî kabrî",
+    "text": "Allahım! Kabrimde yalnızlığımı gider. Kuranı bize şefaatçi eyle.",
+    "note": "Hatim sonrası okunur."
+  },
+  {
+    "id": "19",
     "title": "Anne-Babaya Dua",
     "category": "Aile",
     "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانٖى صَغٖيرًا",
     "transliteration": "Rabbirhamhümâ kemâ rabbeyânî sağîrâ",
-    "text": "Rabbim! Onlara merhamet et.",
-    "note": "Anne baba için okunur."
+    "text": "Rabbim! Onlar beni küçükken nasıl büyüttülerse, Sen de onlara öylece merhamet et.",
+    "note": "Anne baba için her zaman okunur."
   },
   {
-    "id": "16",
+    "id": "20",
+    "title": "Çocuklar İçin Dua",
+    "category": "Aile",
+    "arabic": "رَبَّنَا هَبْ لَنَا مِنْ اَزْوَاجِنَا",
+    "transliteration": "Rabbenâ heb lenâ min ezvâcinâ",
+    "text": "Rabbimiz! Bize eşlerimizden ve çocuklarımızdan göz aydınlığı ver. Bizi takva sahiplerine önder kıl.",
+    "note": "Çocuklar için okunur."
+  },
+  {
+    "id": "21",
     "title": "Bol Rızık Duası",
     "category": "Rızık",
     "arabic": "اَللّٰهُمَّ اكْفِنٖى بِحَلَالِكَ عَنْ حَرَامِكَ",
     "transliteration": "Allâhümme kfinî bi-halâlike an harâmike",
-    "text": "Allahım! Helalinle yetinmeyi nasip et.",
-    "note": "Rızık için okunur."
+    "text": "Allahım! Helalinle yetinip haramdan uzak durmayı nasip et. Fazlınla beni zengin kıl.",
+    "note": "Rızık genişliği için okunur."
   },
   {
-    "id": "17",
+    "id": "22",
+    "title": "Borcunu Ödeyemeyenin Duası",
+    "category": "Rızık",
+    "arabic": "اَللّٰهُمَّ اِنّٖى اَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
+    "transliteration": "Allâhümme innî eûzü bike minel-hemmi vel-hazen",
+    "text": "Allahım! Senden üzüntüden, kederden, acizlikten, tembellikten, korkaklıktan, cimrilikten ve borç yükünden sana sığınırım.",
+    "note": "Borç ve sıkıntı anında okunur."
+  },
+  {
+    "id": "23",
     "title": "Şifa Duası",
     "category": "Sağlık",
     "arabic": "اَللّٰهُمَّ رَبَّ النَّاسِ اَذْهِبِ الْبَاْسَ",
-    "transliteration": "Allâhümme Rabben-nâsi ezhibil-bes",
-    "text": "Allahım! Ey insanların Rabbi! Şu dert ve hastalığı gider.",
-    "note": "Hastalıkta okunur."
+    "transliteration": "Allâhümme Rabben-nâs, ezhibil-bes",
+    "text": "Allahım! Ey insanların Rabbi! Şu dert ve hastalığı gider. Şifa ver, Sen şifa verensin.",
+    "note": "Hastalar için okunur."
   },
   {
-    "id": "18",
+    "id": "24",
+    "title": "Hastayı Ziyaret Duası",
+    "category": "Sağlık",
+    "arabic": "لَا بَاْسَ طَهُورٌ اِنْ شَٓاءَ اللّٰهُ",
+    "transliteration": "Lâ bese tahûrun inşâallâh",
+    "text": "Zararı yok, inşallah günahlarının temizliğidir. Allah şifa versin.",
+    "note": "Hasta ziyaretinde okunur."
+  },
+  {
+    "id": "25",
     "title": "Yağmur Duası",
     "category": "Doğa",
     "arabic": "اَللّٰهُمَّ اَسْقِنَا غَيْثًا مُغٖيثًا",
     "transliteration": "Allâhümme eskınâ ğaysen muğîsen",
-    "text": "Allahım! Bize faydalı yağmur ver.",
-    "note": "Yağmur duası olarak okunur."
+    "text": "Allahım! Bize faydalı, bol ve bereketli yağmur ver.",
+    "note": "Kuraklık zamanında okunur."
   },
   {
-    "id": "19",
-    "title": "Cuma Duası",
+    "id": "26",
+    "title": "Rüzgar Duası",
+    "category": "Doğa",
+    "arabic": "اَللّٰهُمَّ اِنّٖى اَسْـَٔلُكَ خَيْرَهَا",
+    "transliteration": "Allâhümme innî eselüke hayrahâ",
+    "text": "Allahım! Bu rüzgarın hayrını, içindekilerin hayrını isterim. Şerrinden sana sığınırım.",
+    "note": "Şiddetli rüzgarda okunur."
+  },
+  {
+    "id": "27",
+    "title": "Yeni Ay Duası",
+    "category": "Doğa",
+    "arabic": "اَللّٰهُمَّ اَهِلَّهُ عَلَيْنَا بِالْاَمْنِ",
+    "transliteration": "Allâhümme ehillehü aleynâ bil-emni",
+    "text": "Allahım! Bu hilali bizim için emniyet, iman, selamet ve İslam üzere doğdur.",
+    "note": "Hilal görünce okunur."
+  },
+  {
+    "id": "28",
+    "title": "Cuma Günü Salavat",
     "category": "İbadet",
     "arabic": "اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ",
     "transliteration": "Allâhümme salli alâ Muhammed",
-    "text": "Allahım! Muhammede salat eyle.",
-    "note": "Cuma günü okunur."
+    "text": "Allahım! Peygamberimiz Muhammede ve onun ailesine salat ve selam eyle.",
+    "note": "Cuma günü çokça okunur."
   },
   {
-    "id": "20",
+    "id": "29",
     "title": "Teheccüd Duası",
     "category": "İbadet",
-    "arabic": "اَللّٰهُمَّ لَكَ الْحَمْدُ اَنْتَ قَيِّمُ السَّمٰوَاتِ",
-    "transliteration": "Allâhümme lekel-hamdü ente kayyimüs-semâvât",
-    "text": "Allahım! Hamd Sanadır. Gökleri ayakta tutan Sensin.",
-    "note": "Gece namazında okunur."
+    "arabic": "اَللّٰهُمَّ لَكَ الْحَمْدُ اَنْتَ نُورُ السَّمٰوَاتِ",
+    "transliteration": "Allâhümme lekel-hamdü ente nûrus-semâvât",
+    "text": "Allahım! Hamd Sanadır. Sen göklerin ve yerin nurusun. Sen hakkın ta kendisisin.",
+    "note": "Teheccüd namazında okunur."
+  },
+  {
+    "id": "30",
+    "title": "Abdest Duası",
+    "category": "İbadet",
+    "arabic": "اَللّٰهُمَّ اغْفِرْ لٖى ذَنْبٖى",
+    "transliteration": "Allâhümmeğfir lî zenbî",
+    "text": "Allahım! Günahımı bağışla, evimi genişlet ve rızkımı bereketlendir.",
+    "note": "Abdest alırken okunur."
+  },
+  {
+    "id": "31",
+    "title": "Mescide Girerken",
+    "category": "İbadet",
+    "arabic": "اَللّٰهُمَّ افْتَحْ لٖى اَبْوَابَ رَحْمَتِكَ",
+    "transliteration": "Allâhümmeftah lî ebvâbe rahmetike",
+    "text": "Allahım! Bana rahmet kapılarını aç.",
+    "note": "Mescide girerken sağ ayakla okunur."
+  },
+  {
+    "id": "32",
+    "title": "Mescidden Çıkarken",
+    "category": "İbadet",
+    "arabic": "اَللّٰهُمَّ اِنّٖى اَسْـَٔلُكَ مِنْ فَضْلِكَ",
+    "transliteration": "Allâhümme innî eselüke min fadlike",
+    "text": "Allahım! Senden fazlını ve lütfunu isterim.",
+    "note": "Mescidden çıkarken sol ayakla okunur."
+  },
+  {
+    "id": "33",
+    "title": "Elbise Giyerken",
+    "category": "Günlük Yaşam",
+    "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذٖى كَسَانٖى هٰذَا",
+    "transliteration": "Elhamdü lillâhillezî kesânî hâzâ",
+    "text": "Bana bu elbiseyi giydiren ve tarafımdan hiçbir güç olmaksızın onu rızık olarak veren Allaha hamd olsun.",
+    "note": "Yeni elbise giyerken okunur."
+  },
+  {
+    "id": "34",
+    "title": "Aynaya Bakarken",
+    "category": "Günlük Yaşam",
+    "arabic": "اَللّٰهُمَّ حَسَّنْتَ خَلْقٖى فَحَسِّنْ خُلُقٖى",
+    "transliteration": "Allâhümme hassente halkî fehassin hulukî",
+    "text": "Allahım! Yaratılışımı güzel kıldığın gibi ahlakımı da güzelleştir.",
+    "note": "Aynaya bakarken okunur."
+  },
+  {
+    "id": "35",
+    "title": "Korku Duası",
+    "category": "Zor Anlarda",
+    "arabic": "اَللّٰهُمَّ اِنَّا نَجْعَلُكَ فٖى نُحُورِهِمْ",
+    "transliteration": "Allâhümme innâ necalüke fî nuhûrihim",
+    "text": "Allahım! Seni onların karşısına dikiyoruz. Onların şerrinden sana sığınıyoruz.",
+    "note": "Korku anında okunur."
+  },
+  {
+    "id": "36",
+    "title": "İmtihan Duası",
+    "category": "Zor Anlarda",
+    "arabic": "رَبِّ اشْرَحْ لٖى صَدْرٖى وَيَسِّرْ لٖى اَمْرٖى",
+    "transliteration": "Rabbisrah lî sadrî ve yessir lî emrî",
+    "text": "Rabbim! Göğsüme genişlik ver, işimi kolaylaştır. Dilimin düğümünü çöz ki sözümü anlasınlar.",
+    "note": "Sınav, konuşma öncesi okunur."
+  },
+  {
+    "id": "37",
+    "title": "Tövbe Duası",
+    "category": "İman & İhlas",
+    "arabic": "رَبَّنَا ظَلَمْنَٓا اَنْفُسَنَا",
+    "transliteration": "Rabbenâ zalemnâ enfüsenâ",
+    "text": "Rabbimiz! Biz kendimize zulmettik. Eğer bizi bağışlamaz ve bize merhamet etmezsen, mutlaka kaybedenlerden oluruz.",
+    "note": "Tövbe ederken okunur."
+  },
+  {
+    "id": "38",
+    "title": "Kadir Gecesi Duası",
+    "category": "İbadet",
+    "arabic": "اَللّٰهُمَّ اِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ",
+    "transliteration": "Allâhümme inneke afüvvün tühıbbül-afve",
+    "text": "Allahım! Sen affedicisin, affetmeyi seversin, beni de affet.",
+    "note": "Kadir gecesinde çokça okunur."
+  },
+  {
+    "id": "39",
+    "title": "Ramazan Duası",
+    "category": "İbadet",
+    "arabic": "اَللّٰهُمَّ بَلِّغْنَا رَمَضَانَ",
+    "transliteration": "Allâhümme belliğnâ Ramadân",
+    "text": "Allahım! Bizi Ramazana ulaştır. Oruçlarımızı, ibadetlerimizi kabul eyle.",
+    "note": "Ramazan öncesi ve boyunca okunur."
+  },
+  {
+    "id": "40",
+    "title": "İftar Duası",
+    "category": "İbadet",
+    "arabic": "اَللّٰهُمَّ لَكَ صُمْتُ وَبِكَ اٰمَنْتُ",
+    "transliteration": "Allâhümme leke sumtü ve bike âmentü",
+    "text": "Allahım! Senin için oruç tuttum, sana inandım, sana güvendim, senin rızkınla orucumu açıyorum.",
+    "note": "İftar ederken okunur."
   }
 ]

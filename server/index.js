@@ -219,6 +219,29 @@ app.get('/api/tafsir/:surahId', (req, res) => {
   res.json(surahTafsir);
 });
 
+// ─── NAMAZ VAKITLERI PROXY ───
+
+app.get('/api/prayer-times', async (req, res) => {
+  try {
+    const { lat, lng, date, method } = req.query;
+    const today = new Date();
+    const d = date || `${today.getDate().toString().padStart(2,'0')}-${(today.getMonth()+1).toString().padStart(2,'0')}-${today.getFullYear()}`;
+    const m = method || '13'; // 13 = Diyanet
+
+    const resp = await fetch(
+      `https://api.aladhan.com/v1/timings/${d}?latitude=${lat || 41.0082}&longitude=${lng || 28.9784}&method=${m}`
+    );
+    const data = await resp.json();
+    res.json(data);
+  } catch (e) {
+    res.status(500).json({ error: 'Namaz vakitleri alinamadi' });
+  }
+});
+
+app.get('/api/prayer-times/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 // ─── Baslat ───
 
 app.listen(PORT, '0.0.0.0', () => {

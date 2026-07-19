@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import '../core/constants/app_colors.dart';
 import '../data/services/ad_service.dart';
 import '../data/services/api_service.dart';
+import '../data/services/premium_service.dart';
 import 'surah_detail_screen.dart';
 import 'premium_screen.dart';
 
@@ -51,6 +52,12 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
   @override
   void initState() {
     super.initState();
+    // Premium durumunu sunucudan kontrol et
+    PremiumService.isPremium.then((p) {
+      if (mounted) setState(() => _isPremium = p);
+    });
+    // Her gun 3 ucretsiz soru hakki ver
+    _initDailyQuota();
     if (!_isPremium) {
       WidgetsBinding.instance.addPostFrameCallback((_) => InterstitialAd.show(context));
     }
@@ -268,6 +275,11 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
     }
 
     _scrollToBottom();
+  }
+
+  void _initDailyQuota() {
+    // Her gun 3 ucretsiz soru hakki ile basla
+    _earnedQuestions = 3;
   }
 
   void _saveDayToHistory() {

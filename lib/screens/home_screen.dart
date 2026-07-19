@@ -155,11 +155,19 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _refreshPremium();
+  }
+
+  Future<void> _refreshPremium() async {
+    final p = await PremiumService.isPremium;
+    if (mounted && p != _isPremium) setState(() => _isPremium = p);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // Premium durumunu her build'de kontrol et (SharedPreferences cache'li, hizli)
-    PremiumService.isPremium.then((p) {
-      if (mounted && p != _isPremium) setState(() => _isPremium = p);
-    });
     final day = _prayerDay;
     return Scaffold(
       backgroundColor: AppColors.background,

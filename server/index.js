@@ -7,25 +7,80 @@ const multer = require('multer');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'tefsirai2026';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+if (!ADMIN_PASSWORD) {
+  console.error('FATAL: ADMIN_PASSWORD environment variable is required');
+  process.exit(1);
+}
 const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY || '';
 const CLAUDE_MODEL = 'claude-haiku-4-5-20251001';
 
-// Rate limiting (in-memory, restart'ta sifirlanir)
+// Rate limiting (in-memory, restart'ta sifirlanir, periyodik temizlenir)
 const rateLimitMap = new Map(); // IP -> { count, resetTime }
+const loginAttempts = new Map(); // IP -> { count, lastAttempt }
 const FREE_DAILY_LIMIT = 50;
 const PREMIUM_DAILY_LIMIT = 500;
+const RATE_CLEANUP_INTERVAL = 3600000; // 1 saatte bir temizlik
+
+// Eski rate limit entry'lerini temizle
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, val] of rateLimitMap) {
+    if (val.resetTime < now) rateLimitMap.delete(key);
+  }
+}, RATE_CLEANUP_INTERVAL);
 
 function checkRateLimit(ip, isPremium) {
   const now = Date.now();
   const today = new Date().toDateString();
   const key = ip + '_' + today;
-  const entry = rateLimitMap.get(key) || { count: 0, resetTime: now + 86400000 };
+  const entry = rateLimitMap.get(key);
   const limit = isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT;
-  if (entry.count >= limit) return false;
-  entry.count++;
-  rateLimitMap.set(key, entry);
+
+  if (entry) {
+    if (entry.count >= limit) return false;
+    entry.count++;
+  } else {
+    rateLimitMap.set(key, { count: 1, resetTime: now + 86400000 });
+  }
   return true;
+}
+
+// Brute force protection for login
+const MAX_LOGIN_ATTEMPTS = 10;
+const LOGIN_LOCKOUT_MS = 900000; // 15 dakika
+
+function checkLoginRateLimit(ip) {
+  const now = Date.now();
+  const entry = loginAttempts.get(ip);
+  if (!entry) return true;
+  if (entry.count >= MAX_LOGIN_ATTEMPTS && now - entry.lastAttempt < LOGIN_LOCKOUT_MS) {
+    return false;
+  }
+  if (now - entry.lastAttempt > LOGIN_LOCKOUT_MS) {
+    loginAttempts.delete(ip);
+    return true;
+  }
+  return true;
+}
+
+// Allowed fields per resource (prototype pollution onlemi)
+const ALLOWED_FIELDS = {
+  wallpapers: ['asset', 'imageUrl', 'category', 'verseText', 'surahName', 'verseNumbers', 'isPremium'],
+  verses: ['text', 'surahName', 'verseNumbers'],
+  hadiths: ['text', 'source', 'category', 'arabic'],
+  prayers: ['title', 'category', 'arabic', 'transliteration', 'text', 'note'],
+};
+
+function sanitizeBody(body, resourceName) {
+  const allowed = ALLOWED_FIELDS[resourceName] || [];
+  const clean = {};
+  for (const key of allowed) {
+    if (body[key] !== undefined) {
+      clean[key] = typeof body[key] === 'string' ? body[key].substring(0, 10000) : body[key];
+    }
+  }
+  return clean;
 }
 
 app.use(cors());

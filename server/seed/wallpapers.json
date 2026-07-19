@@ -2,617 +2,673 @@
   {
     "id": "1",
     "asset": "istanbul.png",
-    "imageUrl": "assets/istanbul.png",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449345218-498262872.png",
     "category": "Duvar Kağıtları",
     "verseText": "Şüphesiz güçlükle beraber bir kolaylık vardır.",
     "surahName": "İnşirah Suresi",
     "verseNumbers": "5-6",
     "isPremium": false,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449345218-498262872.png"
   },
   {
     "id": "2",
     "asset": "pexels-abbas-zaidi-2161151287-37929176.jpg",
-    "imageUrl": "assets/pexels-abbas-zaidi-2161151287-37929176.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449345893-595101478.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah, kendisinden başka ilah olmayandır. En güzel isimler O'nundur.",
     "surahName": "Tâhâ Suresi",
     "verseNumbers": "8",
     "isPremium": false,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449345893-595101478.jpg"
   },
   {
     "id": "3",
     "asset": "pexels-abeer-h-194760305-14621114.jpg",
-    "imageUrl": "assets/pexels-abeer-h-194760305-14621114.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449346523-627945933.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Rabbinizden size indirilene uyun. O'ndan başka velilere uymayın.",
     "surahName": "A'râf Suresi",
     "verseNumbers": "3",
     "isPremium": false,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449346523-627945933.jpg"
   },
   {
     "id": "4",
     "asset": "pexels-afhamhmsyri-27441157.jpg",
-    "imageUrl": "assets/pexels-afhamhmsyri-27441157.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449347232-573373993.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah'ın ipine hepiniz sımsıkı sarılın, ayrılmayın.",
     "surahName": "Âl-i İmrân Suresi",
     "verseNumbers": "103",
     "isPremium": false,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449347232-573373993.jpg"
   },
   {
     "id": "5",
     "asset": "pexels-afiography-36995143.jpg",
-    "imageUrl": "assets/pexels-afiography-36995143.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449348378-688444794.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Kim Allah'a dayanırsa, kuşkusuz doğru yola erişmiştir.",
     "surahName": "Âl-i İmrân Suresi",
     "verseNumbers": "101",
     "isPremium": false,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449348378-688444794.jpg"
   },
   {
     "id": "6",
     "asset": "pexels-akbayfly-2158699886-35638164.jpg",
-    "imageUrl": "assets/pexels-akbayfly-2158699886-35638164.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449349477-969365699.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Rabbiniz, merhamet sahibidir. O'nun rahmetinden ümit kesmeyin.",
     "surahName": "Zümer Suresi",
     "verseNumbers": "53",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449349477-969365699.jpg"
   },
   {
     "id": "7",
     "asset": "pexels-alhawraa-489004176-37780505.jpg",
-    "imageUrl": "assets/pexels-alhawraa-489004176-37780505.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449350413-582362993.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah sabredenlerle beraberdir.",
     "surahName": "Bakara Suresi",
     "verseNumbers": "153",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449350413-582362993.jpg"
   },
   {
     "id": "8",
     "asset": "pexels-anish-264852620-12889586.jpg",
-    "imageUrl": "assets/pexels-anish-264852620-12889586.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449351162-657148572.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah'ı çok zikredin ki kurtuluşa eresiniz.",
     "surahName": "Cum'a Suresi",
     "verseNumbers": "10",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449351162-657148572.jpg"
   },
   {
     "id": "9",
     "asset": "pexels-antoaneta-mehandova-2160547688-36883348.jpg",
-    "imageUrl": "assets/pexels-antoaneta-mehandova-2160547688-36883348.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449351653-967825269.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah'ın mescitlerini ancak Allah'a ve ahiret gününe iman edenler imar eder.",
     "surahName": "Tevbe Suresi",
     "verseNumbers": "18",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449351653-967825269.jpg"
   },
   {
     "id": "10",
     "asset": "pexels-beratorer-33348119.jpg",
-    "imageUrl": "assets/pexels-beratorer-33348119.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449352329-143289981.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Rabbiniz size: \"Bana dua edin, size icabet edeyim\" buyurdu.",
     "surahName": "Mü'min Suresi",
     "verseNumbers": "60",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449352329-143289981.jpg"
   },
   {
     "id": "11",
     "asset": "pexels-bernahanim_-1173268160-30809929.jpg",
-    "imageUrl": "assets/pexels-bernahanim_-1173268160-30809929.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449353628-356493179.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Kulunu bir gece Mescid-i Haram'dan Mescid-i Aksâ'ya yürüten Allah her türlü noksandan münezzehtir.",
     "surahName": "İsrâ Suresi",
     "verseNumbers": "1",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449353628-356493179.jpg"
   },
   {
     "id": "12",
     "asset": "pexels-betty-30079555.jpg",
-    "imageUrl": "assets/pexels-betty-30079555.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449354518-875169352.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Doğu da Allah'ındır, batı da. Nereye dönerseniz Allah'ın yüzü oradadır.",
     "surahName": "Bakara Suresi",
     "verseNumbers": "115",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449354518-875169352.jpg"
   },
   {
     "id": "13",
     "asset": "pexels-beyza-emisen-1205168918-38135685.jpg",
-    "imageUrl": "assets/pexels-beyza-emisen-1205168918-38135685.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449355363-998996886.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Gökleri ve yeri yaratan, onların benzerini yaratmaya kadir değil midir?",
     "surahName": "Yâsîn Suresi",
     "verseNumbers": "81",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449355363-998996886.jpg"
   },
   {
     "id": "14",
     "asset": "pexels-beyza-emisen-1205168918-38281843.jpg",
-    "imageUrl": "assets/pexels-beyza-emisen-1205168918-38281843.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449356539-451905182.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Yeryüzünde, onları sarsmasın diye sabit dağlar yerleştirdik.",
     "surahName": "Enbiyâ Suresi",
     "verseNumbers": "31",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449356539-451905182.jpg"
   },
   {
     "id": "15",
     "asset": "pexels-brokenadmiral_-493491871-16013170.jpg",
-    "imageUrl": "assets/pexels-brokenadmiral_-493491871-16013170.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449357981-866758742.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Gökten su indiren O'dur. Her bitkiyi onunla bitirdik.",
     "surahName": "En'âm Suresi",
     "verseNumbers": "99",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449357981-866758742.jpg"
   },
   {
     "id": "16",
     "asset": "pexels-bugrahan-haksever-337114162-17561872.jpg",
-    "imageUrl": "assets/pexels-bugrahan-haksever-337114162-17561872.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449358751-911330018.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Yeryüzüne bakmazlar mı, onda her güzel çiftten nice bitkiler yetiştirdik.",
     "surahName": "Şu'arâ Suresi",
     "verseNumbers": "7",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449358751-911330018.jpg"
   },
   {
     "id": "17",
     "asset": "pexels-catalin-todosia-876894548-29871574.jpg",
-    "imageUrl": "assets/pexels-catalin-todosia-876894548-29871574.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449360461-354753665.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Göklerin ve yerin yaratılışında akıl sahipleri için deliller vardır.",
     "surahName": "Âl-i İmrân Suresi",
     "verseNumbers": "190",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449360461-354753665.jpg"
   },
   {
     "id": "18",
     "asset": "pexels-cigdem-i-seri-163348451-12811841.jpg",
-    "imageUrl": "assets/pexels-cigdem-i-seri-163348451-12811841.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449361941-716315272.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Göğe bakmazlar mı, onu nasıl yükselttik ve süsledik.",
     "surahName": "Kâf Suresi",
     "verseNumbers": "6",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449361941-716315272.jpg"
   },
   {
     "id": "19",
     "asset": "pexels-ebuuyildiz-17793951.jpg",
-    "imageUrl": "assets/pexels-ebuuyildiz-17793951.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449362918-482406090.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Güneş de bir delildir onlara; kendi yörüngesinde akıp gider.",
     "surahName": "Yâsîn Suresi",
     "verseNumbers": "38",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449362918-482406090.jpg"
   },
   {
     "id": "20",
     "asset": "pexels-ekremkaptanlar-28499163.jpg",
-    "imageUrl": "assets/pexels-ekremkaptanlar-28499163.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449363493-851578127.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Ay'a gelince, ona da menziller tayin ettik.",
     "surahName": "Yâsîn Suresi",
     "verseNumbers": "39",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449363493-851578127.jpg"
   },
   {
     "id": "21",
     "asset": "pexels-ekrulila-4218831.jpg",
-    "imageUrl": "assets/pexels-ekrulila-4218831.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449364657-77313864.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Gökleri ve yeri hak ile yarattı. Geceyi gündüze dolar.",
     "surahName": "Zümer Suresi",
     "verseNumbers": "5",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449364657-77313864.jpg"
   },
   {
     "id": "22",
     "asset": "pexels-emre-bilgic-612391750-31587929.jpg",
-    "imageUrl": "assets/pexels-emre-bilgic-612391750-31587929.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449366822-618111890.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Yıldızlar da O'nun emrine boyun eğmiştir.",
     "surahName": "Nahl Suresi",
     "verseNumbers": "12",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449366822-618111890.jpg"
   },
   {
     "id": "23",
     "asset": "pexels-erdirbit-20584441.jpg",
-    "imageUrl": "assets/pexels-erdirbit-20584441.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449369417-469372149.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "İki denizi birbirine kavuşmak üzere salıvermiştir.",
     "surahName": "Rahmân Suresi",
     "verseNumbers": "19-20",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449369417-469372149.jpg"
   },
   {
     "id": "24",
     "asset": "pexels-faris-purnawarman-537694366-16539350.jpg",
-    "imageUrl": "assets/pexels-faris-purnawarman-537694366-16539350.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449371292-392624797.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Göklerin ve yerin mülkü O'nundur. Her iş O'na döndürülür.",
     "surahName": "Hadîd Suresi",
     "verseNumbers": "5",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449371292-392624797.jpg"
   },
   {
     "id": "25",
     "asset": "pexels-fotovegraf-312591823-27397439.jpg",
-    "imageUrl": "assets/pexels-fotovegraf-312591823-27397439.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449372913-138940841.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "O, korku ve ümit vermek için size şimşeği gösterendir.",
     "surahName": "Ra'd Suresi",
     "verseNumbers": "12",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449372913-138940841.jpg"
   },
   {
     "id": "26",
     "asset": "pexels-funda-izgi-236637469-22487909.jpg",
-    "imageUrl": "assets/pexels-funda-izgi-236637469-22487909.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449374523-649304376.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah göklerin ve yerin nurudur.",
     "surahName": "Nûr Suresi",
     "verseNumbers": "35",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449374523-649304376.jpg"
   },
   {
     "id": "27",
     "asset": "pexels-gun-tfk-3901963-12364268.jpg",
-    "imageUrl": "assets/pexels-gun-tfk-3901963-12364268.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449375559-48084442.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Şüphesiz güçlükle beraber bir kolaylık vardır.",
     "surahName": "İnşirah Suresi",
     "verseNumbers": "5-6",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449375559-48084442.jpg"
   },
   {
     "id": "28",
     "asset": "pexels-hbt-670654920-21563667.jpg",
-    "imageUrl": "assets/pexels-hbt-670654920-21563667.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449376277-961843891.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah, kendisinden başka ilah olmayandır. En güzel isimler O'nundur.",
     "surahName": "Tâhâ Suresi",
     "verseNumbers": "8",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449376277-961843891.jpg"
   },
   {
     "id": "29",
     "asset": "pexels-hbt-670654920-21855272.jpg",
-    "imageUrl": "assets/pexels-hbt-670654920-21855272.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449377217-847271816.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Rabbinizden size indirilene uyun. O'ndan başka velilere uymayın.",
     "surahName": "A'râf Suresi",
     "verseNumbers": "3",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449377217-847271816.jpg"
   },
   {
     "id": "30",
     "asset": "pexels-henrik-le-botos-654782730-19316863.jpg",
-    "imageUrl": "assets/pexels-henrik-le-botos-654782730-19316863.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449378627-435343177.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah'ın ipine hepiniz sımsıkı sarılın, ayrılmayın.",
     "surahName": "Âl-i İmrân Suresi",
     "verseNumbers": "103",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449378627-435343177.jpg"
   },
   {
     "id": "31",
     "asset": "pexels-hussam-eldeen-478486569-34303906.jpg",
-    "imageUrl": "assets/pexels-hussam-eldeen-478486569-34303906.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449379482-266882772.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Kim Allah'a dayanırsa, kuşkusuz doğru yola erişmiştir.",
     "surahName": "Âl-i İmrân Suresi",
     "verseNumbers": "101",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449379482-266882772.jpg"
   },
   {
     "id": "32",
     "asset": "pexels-ishahidsultan-8645749.jpg",
-    "imageUrl": "assets/pexels-ishahidsultan-8645749.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449380828-850512379.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Rabbiniz, merhamet sahibidir. O'nun rahmetinden ümit kesmeyin.",
     "surahName": "Zümer Suresi",
     "verseNumbers": "53",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449380828-850512379.jpg"
   },
   {
     "id": "33",
     "asset": "pexels-jess-vide-5008226.jpg",
-    "imageUrl": "assets/pexels-jess-vide-5008226.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449381864-818774617.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah sabredenlerle beraberdir.",
     "surahName": "Bakara Suresi",
     "verseNumbers": "153",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449381864-818774617.jpg"
   },
   {
     "id": "34",
     "asset": "pexels-josh-hild-1270765-2607492.jpg",
-    "imageUrl": "assets/pexels-josh-hild-1270765-2607492.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449384683-336820885.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah'ı çok zikredin ki kurtuluşa eresiniz.",
     "surahName": "Cum'a Suresi",
     "verseNumbers": "10",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449384683-336820885.jpg"
   },
   {
     "id": "35",
     "asset": "pexels-m-emre_celik-2054744248-29369522.jpg",
-    "imageUrl": "assets/pexels-m-emre_celik-2054744248-29369522.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449386453-878281999.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah'ın mescitlerini ancak Allah'a ve ahiret gününe iman edenler imar eder.",
     "surahName": "Tevbe Suresi",
     "verseNumbers": "18",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449386453-878281999.jpg"
   },
   {
     "id": "36",
     "asset": "pexels-mahmut-tozal-368300344-35743716.jpg",
-    "imageUrl": "assets/pexels-mahmut-tozal-368300344-35743716.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449387377-587176815.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Rabbiniz size: \"Bana dua edin, size icabet edeyim\" buyurdu.",
     "surahName": "Mü'min Suresi",
     "verseNumbers": "60",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449387377-587176815.jpg"
   },
   {
     "id": "37",
     "asset": "pexels-martin-marthadinata-252863-37446213.jpg",
-    "imageUrl": "assets/pexels-martin-marthadinata-252863-37446213.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449388803-56032118.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Kulunu bir gece Mescid-i Haram'dan Mescid-i Aksâ'ya yürüten Allah her türlü noksandan münezzehtir.",
     "surahName": "İsrâ Suresi",
     "verseNumbers": "1",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449388803-56032118.jpg"
   },
   {
     "id": "38",
     "asset": "pexels-mohammed-abubakr-201794886-13058153.jpg",
-    "imageUrl": "assets/pexels-mohammed-abubakr-201794886-13058153.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449389911-886102614.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Doğu da Allah'ındır, batı da. Nereye dönerseniz Allah'ın yüzü oradadır.",
     "surahName": "Bakara Suresi",
     "verseNumbers": "115",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449389911-886102614.jpg"
   },
   {
     "id": "39",
     "asset": "pexels-ozlem-k-771715772-33514658.jpg",
-    "imageUrl": "assets/pexels-ozlem-k-771715772-33514658.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449390544-980020772.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Gökleri ve yeri yaratan, onların benzerini yaratmaya kadir değil midir?",
     "surahName": "Yâsîn Suresi",
     "verseNumbers": "81",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449390544-980020772.jpg"
   },
   {
     "id": "40",
     "asset": "pexels-pakkontrack-9744509.jpg",
-    "imageUrl": "assets/pexels-pakkontrack-9744509.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449393345-524135306.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Yeryüzünde, onları sarsmasın diye sabit dağlar yerleştirdik.",
     "surahName": "Enbiyâ Suresi",
     "verseNumbers": "31",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449393345-524135306.jpg"
   },
   {
     "id": "41",
     "asset": "pexels-peshin-photograhpar-80194280-37496403.jpg",
-    "imageUrl": "assets/pexels-peshin-photograhpar-80194280-37496403.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449393712-441579587.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Gökten su indiren O'dur. Her bitkiyi onunla bitirdik.",
     "surahName": "En'âm Suresi",
     "verseNumbers": "99",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449393712-441579587.jpg"
   },
   {
     "id": "42",
     "asset": "pexels-phsantiagoluna-13344258.jpg",
-    "imageUrl": "assets/pexels-phsantiagoluna-13344258.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449394272-196997496.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Yeryüzüne bakmazlar mı, onda her güzel çiftten nice bitkiler yetiştirdik.",
     "surahName": "Şu'arâ Suresi",
     "verseNumbers": "7",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449394272-196997496.jpg"
   },
   {
     "id": "43",
     "asset": "pexels-ramiardilshad-26436652.jpg",
-    "imageUrl": "assets/pexels-ramiardilshad-26436652.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449395372-354337347.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Göklerin ve yerin yaratılışında akıl sahipleri için deliller vardır.",
     "surahName": "Âl-i İmrân Suresi",
     "verseNumbers": "190",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449395372-354337347.jpg"
   },
   {
     "id": "44",
     "asset": "pexels-ramiardilshad-26436664.jpg",
-    "imageUrl": "assets/pexels-ramiardilshad-26436664.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449396289-992495726.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Göğe bakmazlar mı, onu nasıl yükselttik ve süsledik.",
     "surahName": "Kâf Suresi",
     "verseNumbers": "6",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449396289-992495726.jpg"
   },
   {
     "id": "45",
     "asset": "pexels-rinalds-vanags-486629516-15924697.jpg",
-    "imageUrl": "assets/pexels-rinalds-vanags-486629516-15924697.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449397170-483262762.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Güneş de bir delildir onlara; kendi yörüngesinde akıp gider.",
     "surahName": "Yâsîn Suresi",
     "verseNumbers": "38",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449397170-483262762.jpg"
   },
   {
     "id": "46",
     "asset": "pexels-rushdi-fatani-782816372-38546894.jpg",
-    "imageUrl": "assets/pexels-rushdi-fatani-782816372-38546894.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449398188-613915336.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Ay'a gelince, ona da menziller tayin ettik.",
     "surahName": "Yâsîn Suresi",
     "verseNumbers": "39",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449398188-613915336.jpg"
   },
   {
     "id": "47",
     "asset": "pexels-saad-alkot-419901137-16498673.jpg",
-    "imageUrl": "assets/pexels-saad-alkot-419901137-16498673.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449399377-778906480.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Gökleri ve yeri hak ile yarattı. Geceyi gündüze dolar.",
     "surahName": "Zümer Suresi",
     "verseNumbers": "5",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449399377-778906480.jpg"
   },
   {
     "id": "48",
     "asset": "pexels-sadi-yucel-363896568-20628981.jpg",
-    "imageUrl": "assets/pexels-sadi-yucel-363896568-20628981.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449400685-701735844.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Yıldızlar da O'nun emrine boyun eğmiştir.",
     "surahName": "Nahl Suresi",
     "verseNumbers": "12",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449400685-701735844.jpg"
   },
   {
     "id": "49",
     "asset": "pexels-sameerclicks-30216394.jpg",
-    "imageUrl": "assets/pexels-sameerclicks-30216394.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449401882-489631419.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "İki denizi birbirine kavuşmak üzere salıvermiştir.",
     "surahName": "Rahmân Suresi",
     "verseNumbers": "19-20",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449401882-489631419.jpg"
   },
   {
     "id": "50",
     "asset": "pexels-shanu-azhikode-531962-11118835.jpg",
-    "imageUrl": "assets/pexels-shanu-azhikode-531962-11118835.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449403033-858111153.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Göklerin ve yerin mülkü O'nundur. Her iş O'na döndürülür.",
     "surahName": "Hadîd Suresi",
     "verseNumbers": "5",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449403033-858111153.jpg"
   },
   {
     "id": "51",
     "asset": "pexels-sultan-175963006-18274448.jpg",
-    "imageUrl": "assets/pexels-sultan-175963006-18274448.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449403971-765100526.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "O, korku ve ümit vermek için size şimşeği gösterendir.",
     "surahName": "Ra'd Suresi",
     "verseNumbers": "12",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449403971-765100526.jpg"
   },
   {
     "id": "52",
     "asset": "pexels-tahayasiryoney-19838134.jpg",
-    "imageUrl": "assets/pexels-tahayasiryoney-19838134.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449406408-945967664.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah göklerin ve yerin nurudur.",
     "surahName": "Nûr Suresi",
     "verseNumbers": "35",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449406408-945967664.jpg"
   },
   {
     "id": "53",
     "asset": "pexels-vishpix-18028130.jpg",
-    "imageUrl": "assets/pexels-vishpix-18028130.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449407342-349272777.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Şüphesiz güçlükle beraber bir kolaylık vardır.",
     "surahName": "İnşirah Suresi",
     "verseNumbers": "5-6",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449407342-349272777.jpg"
   },
   {
     "id": "54",
     "asset": "pexels-yusuf-kaya-288172498-17379530.jpg",
-    "imageUrl": "assets/pexels-yusuf-kaya-288172498-17379530.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449409002-670792580.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah, kendisinden başka ilah olmayandır. En güzel isimler O'nundur.",
     "surahName": "Tâhâ Suresi",
     "verseNumbers": "8",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449409002-670792580.jpg"
   },
   {
     "id": "55",
     "asset": "pexels-yusuf-kaya-288172498-19001090.jpg",
-    "imageUrl": "assets/pexels-yusuf-kaya-288172498-19001090.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449410547-668600244.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Rabbinizden size indirilene uyun. O'ndan başka velilere uymayın.",
     "surahName": "A'râf Suresi",
     "verseNumbers": "3",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449410547-668600244.jpg"
   },
   {
     "id": "56",
     "asset": "pexels-zkadoshi-36085972.jpg",
-    "imageUrl": "assets/pexels-zkadoshi-36085972.jpg",
+    "imageUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449411222-579441736.jpg",
     "category": "Duvar Kağıtları",
     "verseText": "Allah'ın ipine hepiniz sımsıkı sarılın, ayrılmayın.",
     "surahName": "Âl-i İmrân Suresi",
     "verseNumbers": "103",
     "isPremium": true,
-    "createdAt": "2026-01-01T00:00:00.000Z"
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "thumbnailUrl": "https://tefsir-ai-api.fly.dev/uploads/1784449411222-579441736.jpg"
   }
 ]

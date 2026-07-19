@@ -103,7 +103,7 @@ class ApiWallpaper {
     return ApiWallpaper(
       id: json['id']?.toString() ?? '',
       asset: json['asset'] ?? '',
-      imageUrl: json['imageUrl'] ?? '',
+      imageUrl: json['imageUrl'] ?? json['thumbnailUrl'] ?? '',
       category: json['category'] ?? 'Duvar Kagitlari',
       verseText: json['verseText'] ?? '',
       surahName: json['surahName'] ?? '',

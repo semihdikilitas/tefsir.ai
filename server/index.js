@@ -7,9 +7,27 @@ const multer = require('multer');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'tefsirai2026';
 
 app.use(cors());
 app.use(express.json());
+
+// Auth middleware
+function requireAdmin(req, res, next) {
+  const pw = req.headers['x-admin-password'] || req.query.admin_password || '';
+  if (ADMIN_PASSWORD && pw === ADMIN_PASSWORD) return next();
+  res.status(401).json({ error: 'Yetkisiz erisim. Lutfen giris yapin.' });
+}
+
+// Admin login endpoint
+app.post('/api/admin/login', (req, res) => {
+  const { password } = req.body;
+  if (password === ADMIN_PASSWORD) {
+    res.json({ success: true, token: ADMIN_PASSWORD });
+  } else {
+    res.status(401).json({ error: 'Hatali sifre' });
+  }
+});
 
 // Admin panel
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
@@ -61,7 +79,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage, limits: { fileSize: 50 * 1024 * 1024 } });
 
-app.post('/api/upload', upload.single('image'), (req, res) => {
+app.post('/api/upload', requireAdmin, upload.single('image'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'Dosya yuklenemedi' });
   const url = `/uploads/${req.file.filename}`;
   res.json({ url, filename: req.file.filename });
@@ -91,7 +109,8 @@ function crudRoutes(resourceName) {
     res.json(item);
   });
 
-  app.post(route, (req, res) => {
+  // Write endpoints: admin auth required
+  app.post(route, requireAdmin, (req, res) => {
     const data = readData(filename);
     const item = { id: Date.now().toString(), ...req.body, createdAt: new Date().toISOString() };
     data.push(item);
@@ -99,7 +118,7 @@ function crudRoutes(resourceName) {
     res.status(201).json(item);
   });
 
-  app.put(`${route}/:id`, (req, res) => {
+  app.put(`${route}/:id`, requireAdmin, (req, res) => {
     const data = readData(filename);
     const index = data.findIndex(w => w.id === req.params.id);
     if (index === -1) return res.status(404).json({ error: 'Bulunamadi' });
@@ -108,7 +127,7 @@ function crudRoutes(resourceName) {
     res.json(data[index]);
   });
 
-  app.delete(`${route}/:id`, (req, res) => {
+  app.delete(`${route}/:id`, requireAdmin, (req, res) => {
     const data = readData(filename);
     writeData(filename, data.filter(w => w.id !== req.params.id));
     res.json({ success: true });
@@ -217,6 +236,22 @@ app.get('/api/tafsir/:surahId', (req, res) => {
   const data = readData('tafsir.json');
   const surahTafsir = data.filter(t => t.surahId === parseInt(req.params.surahId));
   res.json(surahTafsir);
+});
+
+// ─── KURAN SAYFA GORSEL API ───
+
+// Sayfa URL listesini getir
+app.get('/api/quran/pages', (req, res) => {
+  const data = readData('quran_pages.json');
+  res.json(data);
+});
+
+// Tek sayfanin URL'ini getir
+app.get('/api/quran/page/:number', (req, res) => {
+  const data = readData('quran_pages.json');
+  const page = data.pages.find(p => p.page === parseInt(req.params.number));
+  if (!page) return res.status(404).json({ error: 'Sayfa bulunamadi' });
+  res.json(page);
 });
 
 // ─── NAMAZ VAKITLERI PROXY ───

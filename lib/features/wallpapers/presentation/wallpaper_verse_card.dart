@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/wallpapers.dart';
 import '../data/wallpaper_models.dart';
+import 'wallpaper_image.dart';
 
 /// Ana ekrandaki gunun ayeti + duvar kagidi karti.
 /// 24 saatte bir, gece 00:00'da degisir.
-/// Uzerine tiklayinca sadece o anki wallpaper tam ekran acilir.
 class WallpaperVerseCard extends StatelessWidget {
   final int currentIndex;
   final void Function(int index, WallpaperItem item) onTap;
@@ -36,50 +36,50 @@ class WallpaperVerseCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(currentIndex, item),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(24)),
+        child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
-          image: DecorationImage(
-            image: AssetImage(item.assetPath),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Colors.black.withValues(alpha: 0.45),
-              BlendMode.darken,
-            ),
-            onError: (exception, stackTrace) {},
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
+            fit: StackFit.expand,
             children: [
-              const Spacer(),
+              // Duvar kagidi resmi (sunucu veya local)
+              WallpaperImage(item: item, fit: BoxFit.cover),
+              // Koyu overlay
+              Container(color: Colors.black.withValues(alpha: 0.45)),
               // Ayet metni
-              Text(
-                item.verseText,
-                maxLines: 6,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  color: AppColors.textLight,
-                  fontSize: 15,
-                  height: 1.5,
-                  fontWeight: FontWeight.w400,
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Spacer(),
+                    Text(
+                      item.verseText,
+                      maxLines: 6,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: AppColors.textLight,
+                        fontSize: 15,
+                        height: 1.5,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        '${item.surahName}, ${item.verseNumbers}',
+                        style: const TextStyle(
+                          color: AppColors.gold,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
                 ),
               ),
-              const SizedBox(height: 8),
-              // Sure bilgisi
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  '${item.surahName}, ${item.verseNumbers}',
-                  style: const TextStyle(
-                    color: AppColors.gold,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              const Spacer(),
             ],
           ),
         ),

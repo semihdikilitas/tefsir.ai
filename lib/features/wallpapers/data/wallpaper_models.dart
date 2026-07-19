@@ -1,12 +1,13 @@
 // Duvar kağıdı ve ayet eşleşmesi için model sınıfları.
 
 class WallpaperItem {
-  final String asset; // örn: 'kabe1.png'
-  final String category; // örn: 'kaabe', 'medine', 'doga'
-  final String verseText; // ayet metni
-  final String surahName; // sure adı
-  final String verseNumbers; // ayet numaraları
-  final bool isPremium; // premium duvar kağıdı mı?
+  final String asset; // örn: 'pexels-xxx.jpg'
+  final String category;
+  final String verseText;
+  final String surahName;
+  final String verseNumbers;
+  final bool isPremium;
+  final String? imageUrl; // Sunucudaki resim URL'i (null ise local asset)
 
   const WallpaperItem({
     required this.asset,
@@ -15,9 +16,13 @@ class WallpaperItem {
     required this.surahName,
     required this.verseNumbers,
     this.isPremium = false,
+    this.imageUrl,
   });
 
   String get assetPath => 'assets/$asset';
+
+  /// Once sunucudan yuklemeyi dener, yoksa local asset'e duser
+  bool get hasRemoteImage => imageUrl != null && imageUrl!.isNotEmpty;
 }
 
 class WallpaperUserPrefs {

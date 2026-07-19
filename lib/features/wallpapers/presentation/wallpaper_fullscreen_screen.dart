@@ -9,6 +9,7 @@ import '../../../core/constants/wallpapers.dart';
 import '../../../core/services/wallpaper_service.dart';
 import '../../../data/services/wallpaper_preferences.dart';
 import '../data/wallpaper_models.dart';
+import 'wallpaper_image.dart';
 
 /// Tam ekran duvar kagidi goruntuleyici.
 /// PageView ile kaydirma, InteractiveViewer ile pinch-to-zoom.
@@ -367,13 +368,8 @@ class _WallpaperFullscreenScreenState extends State<WallpaperFullscreenScreen> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          // Tam ekran resim
-          Image.asset(
-            item.assetPath,
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
+          // Tam ekran resim (sunucu veya local)
+          WallpaperImage(item: item, fit: BoxFit.cover),
 
           // Resmi hafif koyulastir (isigi azalt)
           Container(color: Colors.black.withValues(alpha: 0.25)),

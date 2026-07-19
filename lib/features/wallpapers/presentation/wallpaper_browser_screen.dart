@@ -3,6 +3,7 @@ import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/wallpapers.dart';
 import '../data/wallpaper_models.dart';
 import 'wallpaper_fullscreen_screen.dart';
+import 'wallpaper_image.dart';
 
 /// Duvar kagidi galerisi.
 /// En ustte "Bugunun Duvar Kagidi" belirgin sekilde gosterilir.
@@ -175,8 +176,7 @@ class _WallpaperBrowserScreenState extends State<WallpaperBrowserScreen> {
             fit: StackFit.expand,
             children: [
               // Duvar kagidi resmi
-              Image.asset(item.assetPath, fit: BoxFit.cover,
-                errorBuilder: (c, e, s) => Container(color: AppColors.surfaceCard)),
+              WallpaperImage(item: item, fit: BoxFit.cover),
               // Overlay
               Container(color: Colors.black.withValues(alpha: 0.35)),
               // Ayet metni
@@ -245,8 +245,7 @@ class _WallpaperBrowserScreenState extends State<WallpaperBrowserScreen> {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Image.asset(item.assetPath, fit: BoxFit.cover,
-                errorBuilder: (c, e, s) => Container(color: AppColors.surfaceCard)),
+              WallpaperImage(item: item, fit: BoxFit.cover),
               if (index == _todayIndex)
                 Positioned(top: 0, left: 0, right: 0, child: Container(
                   color: AppColors.gold.withValues(alpha: 0.8),

@@ -518,6 +518,7 @@ class WallpaperRegistry {
           surahName: api.surahName,
           verseNumbers: api.verseNumbers,
           isPremium: api.isPremium,
+          imageUrl: api.imageUrl.isNotEmpty ? api.imageUrl : null,
         );
       }).toList();
 

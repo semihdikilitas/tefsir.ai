@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tefsir AI - Icerik Yonetimi</title>
+<title>Tefsir AI - Panel</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#f0ead6;min-height:100vh}
@@ -33,9 +33,29 @@ td{padding:12px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
 .status{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px}
 .status-free{background:rgba(42,157,143,.2);color:#2A9D8F}
 .status-premium{background:rgba(212,175,55,.2);color:#D4AF37}
+#loginScreen{display:flex;justify-content:center;align-items:center;min-height:100vh;background:#0a0a0a}
+#loginBox{background:#141414;border:1px solid rgba(212,175,55,.2);border-radius:16px;padding:40px;width:90%;max-width:400px;text-align:center}
+#loginBox h1{color:#D4AF37;margin-bottom:8px}
+#loginBox p{color:rgba(240,234,214,.4);font-size:13px;margin-bottom:24px}
+#loginBox input{width:100%;padding:12px;background:#0a0a0a;border:1px solid rgba(212,175,55,.2);border-radius:10px;color:#f0ead6;font-size:14px;text-align:center;margin-bottom:12px}
+#loginBox .error{color:#D90429;font-size:12px;margin-bottom:8px}
+#appScreen{display:none}
 </style>
 </head>
 <body>
+<!-- Login Screen -->
+<div id="loginScreen">
+<div id="loginBox">
+<h1>⚜ Tefsir AI</h1>
+<p>Icerik Yonetim Paneli</p>
+<input type="password" id="passwordInput" placeholder="Sifre" onkeydown="if(event.key==='Enter')login()">
+<div class="error" id="loginError"></div>
+<button class="btn btn-primary" onclick="login()" style="width:100%">Giris Yap</button>
+</div>
+</div>
+
+<!-- App Screen -->
+<div id="appScreen">
 <header>
 <h1>⚜ Tefsir AI</h1>
 <span style="color:rgba(240,234,214,.4);font-size:12px">Icerik Yonetim Paneli</span>
@@ -47,6 +67,7 @@ td{padding:12px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
 <button class="tab-btn" data-tab="prayers">Dualar</button>
 </div>
 <div class="content" id="content"></div>
+</div>
 
 <!-- Modal -->
 <div class="modal" id="modal">
@@ -61,9 +82,48 @@ td{padding:12px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
 </div>
 
 <script>
+let AUTH = sessionStorage.getItem('admin_pw') || '';
 const API = '/api';
 let currentTab = 'wallpapers';
 let editingId = null;
+
+function authHeaders() {
+  return { 'X-Admin-Password': AUTH, 'Content-Type': 'application/json' };
+}
+
+function login() {
+  const pw = document.getElementById('passwordInput').value;
+  if (!pw) return;
+  fetch('/api/admin/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({password:pw}) })
+    .then(r => r.json())
+    .then(d => {
+      if (d.success) {
+        AUTH = pw;
+        sessionStorage.setItem('admin_pw', pw);
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('appScreen').style.display = 'block';
+        load();
+      } else {
+        document.getElementById('loginError').textContent = 'Hatali sifre';
+      }
+    });
+}
+
+// Auto-login
+if (AUTH) {
+  fetch('/api/admin/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({password:AUTH}) })
+    .then(r => r.json())
+    .then(d => {
+      if (d.success) {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('appScreen').style.display = 'block';
+        load();
+      } else {
+        sessionStorage.removeItem('admin_pw');
+        AUTH = '';
+      }
+    });
+}
 
 const fields = {
   wallpapers: [
@@ -83,10 +143,16 @@ const fields = {
   hadiths: [
     {key:'text',label:'Hadis Metni',type:'textarea'},
     {key:'source',label:'Kaynak',type:'text'},
+    {key:'category',label:'Kategori',type:'text'},
+    {key:'arabic',label:'Arapca Metin',type:'textarea'},
   ],
   prayers: [
     {key:'title',label:'Dua Adi',type:'text'},
+    {key:'category',label:'Kategori',type:'text'},
+    {key:'arabic',label:'Arapca Metin',type:'textarea'},
+    {key:'transliteration',label:'Okunusu',type:'text'},
     {key:'text',label:'Dua Metni',type:'textarea'},
+    {key:'note',label:'Not',type:'text'},
   ],
 };
 
@@ -99,12 +165,14 @@ async function load() {
 function renderTable(data) {
   const el = document.getElementById('content');
   if (!data.length) {
-    el.innerHTML = `<p style="color:rgba(240,234,214,.4)">Henuz icerik eklenmemis.</p>
-    <button class="btn btn-primary" onclick="openAdd()">+ Yeni Ekle</button>`;
+    el.innerHTML = '<p style="color:rgba(240,234,214,.4)">Henuz icerik eklenmemis.</p><br><button class="btn btn-primary" onclick="openAdd()">+ Yeni Ekle</button>';
     return;
   }
   const cols = fields[currentTab].map(f => f.label);
-  let html = `<div class="toolbar"><button class="btn btn-primary" onclick="openAdd()">+ Yeni Ekle</button></div>`;
+  let html = '<div class="toolbar"><button class="btn btn-primary" onclick="openAdd()">+ Yeni Ekle</button>';
+  html += '<button class="btn btn-outline" onclick="document.getElementById(\'fileInput\').click()">📷 Resim Yukle</button>';
+  html += '<input type="file" id="fileInput" accept="image/*" style="display:none" onchange="uploadImage(this)">';
+  html += '<span id="uploadStatus" style="font-size:11px;color:rgba(240,234,214,.4)"></span></div>';
   html += '<table><thead><tr><th></th>';
   cols.forEach(c => html += `<th>${c}</th>`);
   html += '<th></th></tr></thead><tbody>';
@@ -112,8 +180,9 @@ function renderTable(data) {
     html += '<tr>';
     html += '<td>' + (item.isPremium ? '<span class="status status-premium">Premium</span>' : '<span class="status status-free">Ucretsiz</span>') + '</td>';
     fields[currentTab].forEach(f => {
-      let val = item[f.key];
+      let val = item[f.key] || '';
       if (typeof val === 'boolean') val = val ? '✓' : '✗';
+      if (typeof val === 'string' && val.length > 40) val = val.substring(0,40) + '...';
       html += `<td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${val || '-'}</td>`;
     });
     html += `<td style="text-align:right">
@@ -168,24 +237,22 @@ async function saveItem() {
       body[k] = v;
     }
   }
-
   const method = editingId ? 'PUT' : 'POST';
   const url = editingId ? `${API}/${currentTab}/${editingId}` : `${API}/${currentTab}`;
-  await fetch(url, {method, headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+  const resp = await fetch(url, { method, headers: authHeaders(), body: JSON.stringify(body) });
+  if (resp.status === 401) { alert('Oturum suresi doldu. Yeniden giris yapin.'); location.reload(); return; }
   closeModal();
   load();
 }
 
 async function deleteItem(id) {
   if (!confirm('Silmek istediginize emin misiniz?')) return;
-  await fetch(`${API}/${currentTab}/${id}`, {method:'DELETE'});
+  const resp = await fetch(`${API}/${currentTab}/${id}`, { method:'DELETE', headers: authHeaders() });
+  if (resp.status === 401) { alert('Oturum suresi doldu.'); location.reload(); return; }
   load();
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('show');
-  editingId = null;
-}
+function closeModal() { document.getElementById('modal').classList.remove('show'); editingId = null; }
 
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', function() {
@@ -196,11 +263,24 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-load();
+async function uploadImage(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const st = document.getElementById('uploadStatus');
+  st.textContent = 'Yukleniyor...';
+  const fd = new FormData();
+  fd.append('image', file);
+  const resp = await fetch('/api/upload', { method:'POST', headers:{'X-Admin-Password': AUTH}, body: fd });
+  const data = await resp.json();
+  if (data.url) {
+    st.textContent = '✓ Yüklendi! URL kopyalandi';
+    navigator.clipboard.writeText(window.location.origin + data.url);
+  } else {
+    st.textContent = 'Hata!';
+  }
+}
 </script>
 </body>
 </html>

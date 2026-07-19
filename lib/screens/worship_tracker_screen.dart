@@ -121,16 +121,20 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
     final yearStart = DateTime(now.year, 1, 1);
     final yearFrom = yearStart.isAfter(firstDay) ? yearStart : firstDay;
 
-    final weekData = await _repo.getExistingRecordsInRange(weekFrom, today);
-    final monthData = await _repo.getExistingRecordsInRange(monthFrom, today);
-    final yearData = await _repo.getExistingRecordsInRange(yearFrom, today);
-    final allData = await _repo.getExistingRecordsInRange(firstDay, today);
+    // Tum gunler icin kayit uret (veri girilmemis gunler bos sayilir → kaza)
+    final weekData = await _repo.getRecordsInRange(weekFrom, today);
+    final monthData = await _repo.getRecordsInRange(monthFrom, today);
+    final yearData = await _repo.getRecordsInRange(yearFrom, today);
+    final allData = await _repo.getRecordsInRange(firstDay, today);
+
+    // Gercek kayit sayisi (veri girilen gunler)
+    final realRecords = await _repo.getExistingRecordsInRange(firstDay, today);
 
     if (!mounted) return;
     setState(() {
       _kazaWeek = _calcKaza(weekData); _kazaMonth = _calcKaza(monthData);
       _kazaYear = _calcKaza(yearData); _kazaAll = _calcKaza(allData);
-      _totalRecordedDays = allData.length;
+      _totalRecordedDays = realRecords.length;
     });
   }
 

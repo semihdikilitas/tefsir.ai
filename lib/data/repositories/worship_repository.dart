@@ -106,4 +106,18 @@ class WorshipRepository {
     final records = await getRecordsInRange(start, end);
     return records.fold<int>(0, (sum, r) => sum + r.completedPrayers);
   }
+
+  /// Kullanicinin ilk kayit tarihini (uygulamayi kullanmaya basladigi gun) dondurur.
+  /// Hic kayit yoksa bugunun tarihini dondurur.
+  Future<DateTime> getFirstRecordDate() async {
+    final db = await _dbHelper.database;
+    final result = await db.query(
+      'daily_worship',
+      orderBy: 'date ASC',
+      limit: 1,
+    );
+    if (result.isEmpty) return DateTime.now();
+    final dateStr = result.first['date'] as String;
+    return DateTime.parse(dateStr);
+  }
 }

@@ -103,13 +103,29 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
 
   Future<void> _loadKaza() async {
     final now = DateTime.now();
-    final weekStart = DateTime(now.year, now.month, now.day).subtract(Duration(days: now.weekday - 1));
+    final today = DateTime(now.year, now.month, now.day);
+
+    // Ilk kayit tarihi — bu tarihten onceki gunler sayilmaz
+    final firstDate = await _repo.getFirstRecordDate();
+    final firstDay = DateTime(firstDate.year, firstDate.month, firstDate.day);
+
+    // Haftalik: bu hafta basindan bugune (ilk kayit tarihinden once degil)
+    final weekStart = today.subtract(Duration(days: now.weekday - 1));
+    final weekFrom = weekStart.isAfter(firstDay) ? weekStart : firstDay;
+
+    // Aylik: bu ay basindan bugune
     final monthStart = DateTime(now.year, now.month, 1);
+    final monthFrom = monthStart.isAfter(firstDay) ? monthStart : firstDay;
+
+    // Yillik: bu yil basindan bugune
     final yearStart = DateTime(now.year, 1, 1);
-    final weekData = await _repo.getExistingRecordsInRange(weekStart, now);
-    final monthData = await _repo.getExistingRecordsInRange(monthStart, now);
-    final yearData = await _repo.getExistingRecordsInRange(yearStart, now);
-    final allData = await _repo.getExistingRecordsInRange(DateTime(2024, 1, 1), now);
+    final yearFrom = yearStart.isAfter(firstDay) ? yearStart : firstDay;
+
+    final weekData = await _repo.getExistingRecordsInRange(weekFrom, today);
+    final monthData = await _repo.getExistingRecordsInRange(monthFrom, today);
+    final yearData = await _repo.getExistingRecordsInRange(yearFrom, today);
+    final allData = await _repo.getExistingRecordsInRange(firstDay, today);
+
     if (!mounted) return;
     setState(() {
       _kazaWeek = _calcKaza(weekData); _kazaMonth = _calcKaza(monthData);

@@ -527,7 +527,7 @@ class WallpaperRegistry {
       return true;
     } catch (e) {
       debugPrint('WallpaperRegistry: API yukleme basarisiz, built-in kullaniliyor. Hata: $e');
-      _loaded = true;
+      // _loaded false kalir, boylece sonraki cagrilarda tekrar dener
       return false;
     }
   }

@@ -83,8 +83,11 @@ function sanitizeBody(body, resourceName) {
   return clean;
 }
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
+app.use(express.json({ limit: '50kb' }));
 
 // Auth middleware
 function requireAdmin(req, res, next) {
@@ -151,7 +154,18 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + '-' + Math.round(Math.random() * 1e9) + ext);
   },
 });
-const upload = multer({ storage, limits: { fileSize: 50 * 1024 * 1024 } });
+const upload = multer({
+  storage,
+  limits: { fileSize: 50 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    if (allowed.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Sadece resim dosyalari yuklenebilir (JPEG, PNG, WebP, GIF)'));
+    }
+  },
+});
 
 app.post('/api/upload', requireAdmin, upload.single('image'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'Dosya yuklenemedi' });
@@ -273,7 +287,7 @@ app.get('/api/quran/ayahs/:surahId/:range', (req, res) => {
 // Arama (ayet metninde veya mealde)
 app.get('/api/quran/search', (req, res) => {
   const q = (req.query.q || '').toLowerCase();
-  if (!q || q.length < 3) return res.json([]);
+  if (!q || q.length < 3 || q.length > 200) return res.json([]);
 
   const data = loadQuranData();
   const results = [];
@@ -323,7 +337,7 @@ app.get('/api/quran/pages', (req, res) => {
 // Tek sayfanin URL'ini getir
 app.get('/api/quran/page/:number', (req, res) => {
   const data = readData('quran_pages.json');
-  const page = data.pages.find(p => p.page === parseInt(req.params.number));
+  const page = data.pages?.find(p => p.page === parseInt(req.params.number));
   if (!page) return res.status(404).json({ error: 'Sayfa bulunamadi' });
   res.json(page);
 });
@@ -336,7 +350,7 @@ app.post('/api/ai/ask', async (req, res) => {
   }
 
   const { messages, systemPrompt } = req.body;
-  const ip = req.ip || req.headers['x-forwarded-for'] || 'unknown';
+  const ip = req.ip || 'unknown';
   const isPremium = req.headers['x-premium'] === 'true';
 
   // Rate limit kontrolu
@@ -367,6 +381,7 @@ app.post('/api/ai/ask', async (req, res) => {
 
     if (!resp.ok) {
       const err = await resp.text();
+      console.error(`Claude API error ${resp.status}:`, err.substring(0, 200));
       return res.status(resp.status).json({ error: 'AI servisi gecici olarak kullanilamiyor' });
     }
 
@@ -409,8 +424,20 @@ app.get('/api/prayer-times/health', (req, res) => {
 
 // ─── Baslat ───
 
-app.listen(PORT, '0.0.0.0', () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`Tefsir AI API calisiyor: http://0.0.0.0:${PORT}`);
   console.log(`Admin panel: http://0.0.0.0:${PORT}/admin`);
   console.log(`Data dizini: ${DATA_DIR}`);
+});
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM alindi, kapaniyor...');
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(1), 10000);
+});
+
+process.on('SIGINT', () => {
+  console.log('SIGINT alindi, kapaniyor...');
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(1), 10000);
 });

@@ -151,7 +151,7 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
   Map<String, int> _calcKaza(List<DailyWorshipRecord> records) {
     final missed = <String, int>{'İmsak (Sabah)': 0, 'Öğle': 0, 'İkindi': 0, 'Akşam': 0, 'Yatsı': 0};
     for (final r in records) {
-      if (!r.imsak) missed['İmsak (Sabah)'] = missed['İmsak (Sabah)']! + 1;
+      if (!r.imsak) missed['İmsak (Sabah)'] = (missed['İmsak (Sabah)'] ?? 0) + 1;
       if (!r.ogle) missed['Öğle'] = missed['Öğle']! + 1;
       if (!r.ikindi) missed['İkindi'] = missed['İkindi']! + 1;
       if (!r.aksam) missed['Akşam'] = missed['Akşam']! + 1;

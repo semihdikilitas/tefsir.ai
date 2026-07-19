@@ -56,6 +56,7 @@ class PrayerTimesService {
       final response = await request.close();
       final body = await response.transform(utf8.decoder).join();
       client.close();
+      // IP spoofing korumasi: sadece req.ip kullan
 
       final json = jsonDecode(body) as Map<String, dynamic>;
       final data = json['data'] as Map<String, dynamic>;

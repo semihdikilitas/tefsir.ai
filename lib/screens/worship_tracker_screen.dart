@@ -25,9 +25,11 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
   List<DailyWorshipRecord> _chartRecords = [];
 
   // Kaza verileri
-  Map<String, int> _kazaWeek = {}, _kazaMonth = {}, _kazaYear = {}, _kazaAll = {};
+  Map<String, int> _kazaData = {};
   int _totalRecordedDays = 0;
-  int _kazaPeriod = 0; // 0: hafta, 1: ay, 2: yıl
+  int _kazaPeriod = 0; // 0: hafta, 1: ay, 2: yil, 3: tum zamanlar
+  int _kazaTimeOffset = 0;
+  String _kazaDateRange = '';
 
   @override void initState() {
     super.initState();
@@ -105,36 +107,44 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
 
-    // Ilk kayit tarihi — bu tarihten onceki gunler sayilmaz
+    // Ilk kayit tarihi
     final firstDate = await _repo.getFirstRecordDate();
     final firstDay = DateTime(firstDate.year, firstDate.month, firstDate.day);
 
-    // Haftalik: bu hafta basindan bugune (ilk kayit tarihinden once degil)
-    final weekStart = today.subtract(Duration(days: now.weekday - 1));
-    final weekFrom = weekStart.isAfter(firstDay) ? weekStart : firstDay;
+    DateTime rangeStart, rangeEnd;
+    if (_kazaPeriod == 0) {
+      // Haftalik: bu hafta + offset
+      final weekStart = today.subtract(Duration(days: now.weekday - 1));
+      rangeStart = DateTime(weekStart.year, weekStart.month, weekStart.day + 7 * _kazaTimeOffset);
+      rangeEnd = DateTime(rangeStart.year, rangeStart.month, rangeStart.day + 6);
+    } else if (_kazaPeriod == 1) {
+      // Aylik
+      final m = DateTime(now.year, now.month + _kazaTimeOffset, 1);
+      rangeStart = m;
+      rangeEnd = DateTime(m.year, m.month + 1, 0);
+    } else if (_kazaPeriod == 2) {
+      // Yillik
+      rangeStart = DateTime(now.year + _kazaTimeOffset, 1, 1);
+      rangeEnd = DateTime(now.year + _kazaTimeOffset, 12, 31);
+    } else {
+      // Tum zamanlar
+      rangeStart = firstDay;
+      rangeEnd = today;
+    }
 
-    // Aylik: bu ay basindan bugune
-    final monthStart = DateTime(now.year, now.month, 1);
-    final monthFrom = monthStart.isAfter(firstDay) ? monthStart : firstDay;
+    // Ilk kayit tarihinden once baslamasin
+    final from = rangeStart.isAfter(firstDay) ? rangeStart : firstDay;
+    final to = rangeEnd.isAfter(today) ? today : rangeEnd;
 
-    // Yillik: bu yil basindan bugune
-    final yearStart = DateTime(now.year, 1, 1);
-    final yearFrom = yearStart.isAfter(firstDay) ? yearStart : firstDay;
-
-    // Tum gunler icin kayit uret (veri girilmemis gunler bos sayilir → kaza)
-    final weekData = await _repo.getRecordsInRange(weekFrom, today);
-    final monthData = await _repo.getRecordsInRange(monthFrom, today);
-    final yearData = await _repo.getRecordsInRange(yearFrom, today);
-    final allData = await _repo.getRecordsInRange(firstDay, today);
-
-    // Gercek kayit sayisi (veri girilen gunler)
-    final realRecords = await _repo.getExistingRecordsInRange(firstDay, today);
+    // Tum gunler icin kayit uret
+    final data = await _repo.getRecordsInRange(from, to);
+    final realRecords = await _repo.getExistingRecordsInRange(from, to);
 
     if (!mounted) return;
     setState(() {
-      _kazaWeek = _calcKaza(weekData); _kazaMonth = _calcKaza(monthData);
-      _kazaYear = _calcKaza(yearData); _kazaAll = _calcKaza(allData);
+      _kazaData = _calcKaza(data);
       _totalRecordedDays = realRecords.length;
+      _kazaDateRange = '${from.day} ${_monthNames[from.month-1]} - ${to.day} ${_monthNames[to.month-1]} ${to.year}';
     });
   }
 
@@ -429,10 +439,8 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
 
   // ═══ KAZA TAKİBİ SEKME ═══
   Widget _buildKazaTab() {
-    final periods = ['Bu Hafta', 'Bu Ay', 'Bu Yıl'];
-    final data = [_kazaWeek, _kazaMonth, _kazaYear][_kazaPeriod];
-    final total = data.values.fold<int>(0, (a, b) => a + b);
-    final allTotal = _kazaAll.values.fold<int>(0, (a, b) => a + b);
+    final periods = ['Hafta', 'Ay', 'Yıl', 'Tümü'];
+    final total = _kazaData.values.fold<int>(0, (a, b) => a + b);
 
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -447,43 +455,53 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
             const SizedBox(height: 10),
             Text('Toplam Kaza Namazı', style: TextStyle(color: AppColors.textLight.withValues(alpha: 0.7), fontSize: 14)),
             const SizedBox(height: 6),
-            Text('$allTotal', style: const TextStyle(color: AppColors.gold, fontSize: 48, fontWeight: FontWeight.w800)),
+            Text('$total', style: const TextStyle(color: AppColors.gold, fontSize: 48, fontWeight: FontWeight.w800)),
             Text('$_totalRecordedDays günlük kayıt üzerinden', style: TextStyle(color: AppColors.textLight.withValues(alpha: 0.35), fontSize: 12)),
           ]),
         ),
 
         const SizedBox(height: 20),
 
-        // PERIOD SEÇİCİ — tam genişlik butonlar
-        Row(children: List.generate(3, (i) {
+        // PERIOD SEÇİCİ
+        Row(children: List.generate(4, (i) {
           final sel = _kazaPeriod == i;
           return Expanded(
             child: GestureDetector(
-              onTap: () => setState(() => _kazaPeriod = i),
+              onTap: () { setState(() { _kazaPeriod = i; _kazaTimeOffset = 0; }); _loadKaza(); },
               child: Container(
-                margin: EdgeInsets.only(left: i > 0 ? 6 : 0),
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                margin: EdgeInsets.only(left: i > 0 ? 4 : 0),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: sel ? AppColors.gold : AppColors.surfaceCard,
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(color: sel ? AppColors.gold : AppColors.gold.withValues(alpha: 0.15)),
                 ),
-                child: Text(
-                  periods[i],
-                  style: TextStyle(
-                    color: sel ? AppColors.textDark : AppColors.textLight.withValues(alpha: 0.7),
-                    fontSize: 14, fontWeight: FontWeight.w700,
-                  ),
-                ),
+                child: Text(periods[i], style: TextStyle(color: sel ? AppColors.textDark : AppColors.textLight.withValues(alpha: 0.7), fontSize: 13, fontWeight: FontWeight.w700)),
               ),
             ),
           );
         })),
 
-        const SizedBox(height: 16),
+        const SizedBox(height: 12),
 
-        // GRAFİK KARTI
+        // NAVIGASYON OKLARI (hafta/ay/yil icin)
+        if (_kazaPeriod < 3)
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            IconButton(
+              icon: const Icon(Icons.chevron_left_rounded, color: AppColors.gold, size: 28),
+              onPressed: () { setState(() => _kazaTimeOffset--); _loadKaza(); },
+            ),
+            Text(_kazaDateRange, style: const TextStyle(color: AppColors.textLight, fontSize: 15, fontWeight: FontWeight.w600)),
+            IconButton(
+              icon: Icon(Icons.chevron_right_rounded, color: _kazaTimeOffset < 0 ? AppColors.gold : AppColors.gold.withValues(alpha: 0.2), size: 28),
+              onPressed: _kazaTimeOffset < 0 ? () { setState(() => _kazaTimeOffset++); _loadKaza(); } : null,
+            ),
+          ]),
+
+        const SizedBox(height: 12),
+
+        // GRAFIK KARTI
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(color: AppColors.surfaceCard, borderRadius: BorderRadius.circular(20), border: Border.all(color: AppColors.gold.withValues(alpha: 0.1))),
@@ -495,8 +513,8 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
             ]),
             const SizedBox(height: 18),
             ..._prayerKeys.map((name) {
-              final count = data[name] ?? 0;
-              final maxVal = data.values.isEmpty ? 1 : data.values.reduce((a, b) => a > b ? a : b);
+              final count = _kazaData[name] ?? 0;
+              final maxVal = _kazaData.values.isEmpty ? 1 : _kazaData.values.reduce((a, b) => a > b ? a : b);
               final ratio = maxVal > 0 ? count / maxVal : 0.0;
               return Padding(
                 padding: const EdgeInsets.only(bottom: 12),
@@ -508,28 +526,6 @@ class _WorshipTrackerScreenState extends State<WorshipTrackerScreen> with Single
                 ]),
               );
             }),
-          ]),
-        ),
-
-        const SizedBox(height: 20),
-
-        // ALT ÖZET: her vakit için toplam (tüm zamanlar)
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(color: AppColors.surfaceCard, borderRadius: BorderRadius.circular(20), border: Border.all(color: AppColors.gold.withValues(alpha: 0.1))),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const Text('Vakit Bazında Toplam Kaza', style: TextStyle(color: AppColors.textLight, fontSize: 15, fontWeight: FontWeight.w600)),
-            const SizedBox(height: 14),
-            Row(children: _prayerKeys.map((name) {
-              final count = _kazaAll[name] ?? 0;
-              return Expanded(
-                child: Column(children: [
-                  Text('$count', style: const TextStyle(color: AppColors.gold, fontSize: 18, fontWeight: FontWeight.w800)),
-                  const SizedBox(height: 4),
-                  Text(name.split('(').first.trim(), style: TextStyle(color: AppColors.textLight.withValues(alpha: 0.45), fontSize: 10), textAlign: TextAlign.center),
-                ]),
-              );
-            }).toList()),
           ]),
         ),
       ]),

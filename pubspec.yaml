@@ -46,5 +46,4 @@ flutter:
     - assets/istanbul.png
     # DÜZELTİLDİ: demo/ klasörü sadece örnek görsellerdi, gerçek 000-604
     # sayfaları bir üst klasörde duruyor.
-    - assets/quran/Quran-PNG-master/
     - assets/quran/quran_tr_full.json

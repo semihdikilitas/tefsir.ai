@@ -183,43 +183,12 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
     _scrollToBottom();
 
     try {
-      // 1. Kaynaklari sunucudan getir
+      // 1. Kaynaklari sunucudan getir (HER ZAMAN - bedava)
       final context = await _fetchContext(text);
-
-      // 2. Akilli yonlendirme:
-      // Basit soru + tefsirde direkt cevap varsa → AI cagirma, direkt goster
-      final bool isSimpleQuestion = text.length < 30 ||
-          RegExp(r'nedir|ne demek|anlam[iı]|meal|ayet|hangi sure|ka[cç]|kimdir').hasMatch(text.toLowerCase());
-      final bool hasDirectAnswer = (context['tafsir'] as List).isNotEmpty;
-
-      if (isSimpleQuestion && hasDirectAnswer) {
-        // AI cagirmadan direkt kaynaktan cevap ver
-        final tafsir = (context['tafsir'] as List).first as Map<String, dynamic>;
-        final ayahs = (context['quran'] as List);
-        String directReply = '';
-
-        if (ayahs.isNotEmpty) {
-          final a = ayahs.first;
-          final surah = a['surah'] ?? {};
-          final ayah = a['ayah'] ?? {};
-          directReply += '${surah['name'] ?? ''} Suresi, ${ayah['id']}. ayet 📖[[${surah['id']}:${ayah['id']}]]\n\n';
-          directReply += '"${ayah['translation']}"\n\n';
-        }
-        directReply += '📚 ${tafsir['source']}:\n${tafsir['text']}';
-
-        final refs = _extractRefs(directReply);
-        if (!mounted) return;
-        setState(() {
-          _messages.add(_ChatMessage(text: directReply, isUser: false, time: DateTime.now(), refs: refs));
-          _isLoading = false;
-        });
-        _scrollToBottom();
-        return;
-      }
-
-      // 3. Karmasik soru → Claude API
+      // 2. Kaynak sonuclarini ve AI promptunu hazirla
       final contextParts = <String>[];
       final sources = <Map<String, dynamic>>[];
+      final refs = <_AyahRef>[];
 
       if ((context['quran'] as List).isNotEmpty) {
         final ayahs = context['quran'] as List;
@@ -229,6 +198,7 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
           final ayah = a['ayah'] ?? {};
           contextParts.add('${surah['name'] ?? ''} ${ayah['id']}: ${ayah['text']}\nMeal: ${ayah['translation']}');
           sources.add({'type': 'ayet', 'surah': surah['id'], 'ayah': ayah['id'], 'text': ayah['translation']});
+          refs.add(_AyahRef((surah['id'] as num).toInt(), (ayah['id'] as num).toInt()));
         }
       }
 
@@ -240,13 +210,13 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
         }
       }
 
+      // 3. Claude'a her zaman sor — ama kaynaklari context olarak ver
       String prompt = text;
       if (contextParts.isNotEmpty) {
         contextParts.add('\nYUKARIDAKI KAYNAKLARI kullanarak soruyu cevapla. Kaynaklarda yoksa "Bu konuda kaynaklarimizda yeterli bilgi bulunmamaktadir" de.');
         prompt = '${contextParts.join('\n')}\n\nSORU: $text';
       }
 
-      // Claude API cagrisi
       final dio = Dio(BaseOptions(connectTimeout: const Duration(seconds: 30), receiveTimeout: const Duration(seconds: 30)));
 
       final messages = <Map<String, dynamic>>[];
@@ -271,25 +241,17 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
         }),
       );
 
-      final reply = response.data['content'][0]['text'] as String;
+      final aiReply = response.data['content'][0]['text'] as String;
+      final aiRefs = _extractRefs(aiReply);
 
       _conversationHistory.add({'role': 'user', 'content': prompt});
-      _conversationHistory.add({'role': 'assistant', 'content': reply});
-      if (_conversationHistory.length > 20) {
-        _conversationHistory.removeRange(0, 2);
-      }
-
-      final refs = _extractRefs(reply);
+      _conversationHistory.add({'role': 'assistant', 'content': aiReply});
+      if (_conversationHistory.length > 20) _conversationHistory.removeRange(0, 2);
 
       if (!mounted) return;
       setState(() {
-        _messages.add(_ChatMessage(
-          text: reply,
-          isUser: false,
-          time: DateTime.now(),
-          refs: refs,
-          sources: sources.isNotEmpty ? sources : null,
-        ));
+        _messages.add(_ChatMessage(text: aiReply, isUser: false, time: DateTime.now(),
+            refs: aiRefs.isNotEmpty ? aiRefs : refs, sources: sources.isNotEmpty ? sources : null));
         _isLoading = false;
       });
 

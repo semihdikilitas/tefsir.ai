@@ -133,9 +133,9 @@ class _PremiumScreenState extends State<PremiumScreen> {
 
   Widget _buildPlanSelector() {
     return Row(children: [
-      Expanded(child: _planCard(0, 'Aylik', '₺79,99', '/ ay')),
+      Expanded(child: _planCard(0, 'Aylik', '₺49,99', '/ ay')),
       const SizedBox(width: 12),
-      Expanded(child: _planCard(1, 'Yillik', '₺33,33', '/ ay', badge: '%50 Tasarruf', footNote: 'Yillik ₺399,99')),
+      Expanded(child: _planCard(1, 'Yillik', '₺24,99', '/ ay', badge: '%50 Tasarruf', footNote: 'Yillik ₺299,99')),
     ]);
   }
 

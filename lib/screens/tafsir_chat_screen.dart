@@ -42,18 +42,11 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
   final List<_ChatMessage> _messages = [];
   bool _isLoading = false;
 
-  // TODO: Gercek API anahtari buraya
-  static const String _apiKey = 'YOUR_ANTHROPIC_API_KEY';
-
   bool _isPremium = false;
   int _earnedQuestions = 0;
   DateTime _lastDate = DateTime.now();
 
   final List<Map<String, String>> _conversationHistory = [];
-
-  static const String _claudeModel = 'claude-haiku-4-5-20251001';
-  static const String _apiUrl = 'https://api.anthropic.com/v1/messages';
-  static const String _apiVersion = '2023-06-01';
 
   @override
   void initState() {
@@ -219,29 +212,35 @@ class _TafsirChatScreenState extends State<TafsirChatScreen> {
 
       final dio = Dio(BaseOptions(connectTimeout: const Duration(seconds: 30), receiveTimeout: const Duration(seconds: 30)));
 
-      final messages = <Map<String, dynamic>>[];
-      for (var i = _conversationHistory.length - 6; i < _conversationHistory.length; i++) {
-        if (i >= 0) messages.add(_conversationHistory[i]);
-      }
-      messages.add({'role': 'user', 'content': prompt});
-
+      // Kendi sunucumuz uzerinden Claude'a sor (API key sunucuda guvende)
       final response = await dio.post(
-        _apiUrl,
+        '${ApiService.baseUrl}/api/ai/ask',
         data: jsonEncode({
-          'model': _claudeModel,
-          'max_tokens': 1024,
-          'temperature': 0.3,
-          'system': _systemPrompt,
-          'messages': messages,
+          'messages': [{ 'role': 'user', 'content': prompt }],
+          'systemPrompt': _systemPrompt,
         }),
         options: Options(headers: {
-          'x-api-key': _apiKey,
-          'anthropic-version': _apiVersion,
           'content-type': 'application/json',
+          'x-premium': _isPremium ? 'true' : 'false',
         }),
       );
 
-      final aiReply = response.data['content'][0]['text'] as String;
+      if (response.statusCode == 429) {
+        if (!mounted) return;
+        setState(() {
+          _messages.add(_ChatMessage(
+            text: 'Gunluk soru limitiniz doldu. Premium ile sinirsiz devam edebilirsiniz.',
+            isUser: false, time: DateTime.now(),
+          ));
+          _isLoading = false;
+        });
+        _scrollToBottom();
+        return;
+      }
+
+      final result = response.data as Map<String, dynamic>;
+      if (result['error'] != null) throw Exception(result['error']);
+      final aiReply = result['reply'] as String;
       final aiRefs = _extractRefs(aiReply);
 
       _conversationHistory.add({'role': 'user', 'content': prompt});

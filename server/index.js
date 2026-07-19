@@ -8,6 +8,25 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'tefsirai2026';
+const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY || '';
+const CLAUDE_MODEL = 'claude-haiku-4-5-20251001';
+
+// Rate limiting (in-memory, restart'ta sifirlanir)
+const rateLimitMap = new Map(); // IP -> { count, resetTime }
+const FREE_DAILY_LIMIT = 50;
+const PREMIUM_DAILY_LIMIT = 500;
+
+function checkRateLimit(ip, isPremium) {
+  const now = Date.now();
+  const today = new Date().toDateString();
+  const key = ip + '_' + today;
+  const entry = rateLimitMap.get(key) || { count: 0, resetTime: now + 86400000 };
+  const limit = isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT;
+  if (entry.count >= limit) return false;
+  entry.count++;
+  rateLimitMap.set(key, entry);
+  return true;
+}
 
 app.use(cors());
 app.use(express.json());
@@ -252,6 +271,62 @@ app.get('/api/quran/page/:number', (req, res) => {
   const page = data.pages.find(p => p.page === parseInt(req.params.number));
   if (!page) return res.status(404).json({ error: 'Sayfa bulunamadi' });
   res.json(page);
+});
+
+// ─── CLAUDE AI PROXY ───
+
+app.post('/api/ai/ask', async (req, res) => {
+  if (!CLAUDE_API_KEY) {
+    return res.status(503).json({ error: 'AI servisi henuz yapilandirilmadi' });
+  }
+
+  const { messages, systemPrompt } = req.body;
+  const ip = req.ip || req.headers['x-forwarded-for'] || 'unknown';
+  const isPremium = req.headers['x-premium'] === 'true';
+
+  // Rate limit kontrolu
+  if (!checkRateLimit(ip, isPremium)) {
+    return res.status(429).json({ error: 'Gunluk soru limitiniz doldu. Premium ile sinirsiz erisim saglayabilirsiniz.' });
+  }
+
+  try {
+    const fullMessages = [
+      ...(messages || []).slice(-10), // Son 10 mesaji al
+    ];
+
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': CLAUDE_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: CLAUDE_MODEL,
+        max_tokens: 1024,
+        temperature: 0.3,
+        system: systemPrompt || '',
+        messages: fullMessages,
+      }),
+    });
+
+    if (!resp.ok) {
+      const err = await resp.text();
+      return res.status(resp.status).json({ error: 'AI servisi gecici olarak kullanilamiyor' });
+    }
+
+    const data = await resp.json();
+    const reply = data.content[0].text;
+
+    // Kullanim sayisini logla
+    const key = ip + '_' + new Date().toDateString();
+    const entry = rateLimitMap.get(key) || { count: 0 };
+    console.log(`AI ask: ${ip} (${isPremium ? 'premium' : 'free'}) - ${entry.count}/${isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT}`);
+
+    res.json({ reply });
+  } catch (e) {
+    res.status(500).json({ error: 'AI servisi gecici olarak kullanilamiyor' });
+  }
 });
 
 // ─── NAMAZ VAKITLERI PROXY ───

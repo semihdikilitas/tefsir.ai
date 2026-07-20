@@ -325,20 +325,11 @@ function loadTafsir(surahId) {
   const filePath = path.join(DATA_DIR, 'quran', 'tefsir', `${surahId}.json`);
   const seedPath = path.join(__dirname, 'seed', 'quran', 'tefsir', `${surahId}.json`);
 
-  // Seed'den her zaman kopyala (guncel veri icin)
+  // Her zaman seed'den kopyala (tafsir sik guncelleniyor)
   if (fs.existsSync(seedPath)) {
     const dir = path.dirname(filePath);
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    // Sadece seed daha yeniyse kopyala
-    const seedStat = fs.statSync(seedPath);
-    let copy = true;
-    if (fs.existsSync(filePath)) {
-      const dataStat = fs.statSync(filePath);
-      copy = seedStat.mtime > dataStat.mtime;
-    }
-    if (copy) {
-      fs.copyFileSync(seedPath, filePath);
-    }
+    fs.copyFileSync(seedPath, filePath);
   } else if (!fs.existsSync(filePath)) {
     return [];
   }

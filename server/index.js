@@ -323,17 +323,26 @@ app.get('/api/quran/search', (req, res) => {
 // Tefsir verisi (sure bazli parcali JSON, RAM dostu)
 function loadTafsir(surahId) {
   const filePath = path.join(DATA_DIR, 'quran', 'tefsir', `${surahId}.json`);
-  if (!fs.existsSync(filePath)) {
-    // Seed'den kopyala
-    const seedPath = path.join(__dirname, 'seed', 'quran', 'tefsir', `${surahId}.json`);
-    if (fs.existsSync(seedPath)) {
-      const dir = path.dirname(filePath);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.copyFileSync(seedPath, filePath);
-    } else {
-      return [];
+  const seedPath = path.join(__dirname, 'seed', 'quran', 'tefsir', `${surahId}.json`);
+
+  // Seed'den her zaman kopyala (guncel veri icin)
+  if (fs.existsSync(seedPath)) {
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    // Sadece seed daha yeniyse kopyala
+    const seedStat = fs.statSync(seedPath);
+    let copy = true;
+    if (fs.existsSync(filePath)) {
+      const dataStat = fs.statSync(filePath);
+      copy = seedStat.mtime > dataStat.mtime;
     }
+    if (copy) {
+      fs.copyFileSync(seedPath, filePath);
+    }
+  } else if (!fs.existsSync(filePath)) {
+    return [];
   }
+
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   } catch {

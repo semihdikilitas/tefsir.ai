@@ -91,7 +91,7 @@ app.use(express.json({ limit: '50kb' }));
 
 // Auth middleware
 function requireAdmin(req, res, next) {
-  const pw = req.headers['x-admin-password'] || req.query.admin_password || '';
+  const pw = req.headers['x-admin-password'] || '';
   if (ADMIN_PASSWORD && pw === ADMIN_PASSWORD) return next();
   res.status(401).json({ error: 'Yetkisiz erisim. Lutfen giris yapin.' });
 }
@@ -120,11 +120,16 @@ function ensureDataDir() {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
+// In-memory cache for large files (tafsir 43MB, quran 4MB)
+const dataCache = new Map();
+
 function readData(filename) {
+  // Return cached if available
+  if (dataCache.has(filename)) return dataCache.get(filename);
+
   ensureDataDir();
   const filePath = path.join(DATA_DIR, filename);
   if (!fs.existsSync(filePath)) {
-    // Fallback: built-in seed data'dan kopyala
     const seedPath = path.join(__dirname, 'seed', filename);
     if (fs.existsSync(seedPath)) {
       fs.copyFileSync(seedPath, filePath);
@@ -133,16 +138,23 @@ function readData(filename) {
     }
   }
   try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    // Cache large files (>1MB) in memory
+    if (filePath.endsWith('tafsir.json') || filePath.endsWith('quran_full.json')) {
+      dataCache.set(filename, data);
+    }
+    return data;
   } catch {
     return [];
   }
 }
 
+// Invalidate cache on write
 function writeData(filename, data) {
   ensureDataDir();
   const filePath = path.join(DATA_DIR, filename);
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  dataCache.delete(filename); // Invalidate cache
 }
 
 // ─── Resim upload ───
@@ -308,22 +320,40 @@ app.get('/api/quran/search', (req, res) => {
 
 // ─── TEFSIR API ───
 
-// Tefsir verisi (JSON dosyasi)
+// Tefsir verisi (sure bazli parcali JSON, RAM dostu)
+function loadTafsir(surahId) {
+  const filePath = path.join(DATA_DIR, 'quran', 'tefsir', `${surahId}.json`);
+  if (!fs.existsSync(filePath)) {
+    // Seed'den kopyala
+    const seedPath = path.join(__dirname, 'seed', 'quran', 'tefsir', `${surahId}.json`);
+    if (fs.existsSync(seedPath)) {
+      const dir = path.dirname(filePath);
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      fs.copyFileSync(seedPath, filePath);
+    } else {
+      return [];
+    }
+  }
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return [];
+  }
+}
+
 app.get('/api/tafsir/:surahId/:ayahId', (req, res) => {
-  const data = readData('tafsir.json');
+  const data = loadTafsir(parseInt(req.params.surahId));
   const entry = data.find(t =>
     t.surahId === parseInt(req.params.surahId) &&
     t.ayahId === parseInt(req.params.ayahId)
   );
-  if (!entry) return res.json({ text: 'Bu ayet için henüz tefsir eklenmedi.', source: '' });
+  if (!entry) return res.json({ text: 'Bu ayet icin henuz tefsir eklenmedi.', source: '' });
   res.json(entry);
 });
 
-// Sure bazli tefsir
 app.get('/api/tafsir/:surahId', (req, res) => {
-  const data = readData('tafsir.json');
-  const surahTafsir = data.filter(t => t.surahId === parseInt(req.params.surahId));
-  res.json(surahTafsir);
+  const data = loadTafsir(parseInt(req.params.surahId));
+  res.json(data);
 });
 
 // ─── KURAN SAYFA GORSEL API ───
